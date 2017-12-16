@@ -4,8 +4,6 @@ public class LinkeList {
     private Node head;
     private int size = 0;
 
-
-
     public void addFirst(Node input) {
 
     }
