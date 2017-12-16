@@ -2,8 +2,9 @@ package com.acorn.linkedlist;
 
 public class LinkeList {
     private Node head;
-    private Node tail;
     private int size = 0;
+
+
 
     public void addFirst(Node input) {
 
