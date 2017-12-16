@@ -5,27 +5,27 @@ public class LinkeList {
     private Node tail;
     private int size = 0;
 
-    public void addFirst(Object input) {
+    public void addFirst(Node input) {
 
     }
 
-    public void addLast(Object input){
+    public void addLast(Node input){
 
     }
 
-    public void insert(int index, Object input){
+    public void insert(int index, Node input){
 
     }
 
-    public Object removeFirst(){
+    public Node removeFirst(){
 
     }
 
-    public Object removeLast(){
+    public Node removeLast(){
 
     }
 
-    public Object remove(int index){
+    public Node remove(int index){
 
     }
 
@@ -33,11 +33,19 @@ public class LinkeList {
 
     }
 
-    public Object get(int index){
+    public Node get(int index){
 
     }
 
     public boolean isEmpty(){
+
+    }
+
+    public boolean hasNext(){
+
+    }
+
+    public void printList(){
 
     }
 }
