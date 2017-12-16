@@ -42,10 +42,6 @@ public class LinkeList {
 
     }
 
-    public boolean hasNext(){
-
-    }
-
     public void printList(){
 
     }
