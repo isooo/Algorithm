@@ -7,7 +7,8 @@ public class LinkeList {
 
 
     public void addFirst(Node input) {
-
+//test git branch commit 
+System.out.println("call add First ");
     }
 
     public void addLast(Node input){
