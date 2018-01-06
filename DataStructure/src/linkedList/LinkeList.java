@@ -16,9 +16,18 @@ public class LinkeList {
 	}
 */
     
-	public void addFirst(Node input) {
-
-    }
+	public void addFirst(String newValue) {
+		Node newNode = new Node(newValue);
+		
+		if (this.head == null) {
+			this.head = new Node(newValue);
+		} else {
+			newNode.setNext(this.head);
+			this.head = newNode;
+		}
+		this.size++;
+		printList();
+    }// addFirst()
 
     public void addLast(String newValue){
     	Node newNode = new Node(newValue);

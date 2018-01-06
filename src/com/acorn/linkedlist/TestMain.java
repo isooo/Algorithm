@@ -9,6 +9,8 @@ public class TestMain {
 		list.addLast("Tuesday");
 		list.addLast("Wednesday");
 		
+		list.addFirst("Sunday");
+		
 	}// main()
 
 }
