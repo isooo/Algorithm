@@ -103,13 +103,13 @@ public class LinkeList {
 			System.out.println("There is no Node to remove");
 			return null;
 		} else {
-			Node nextLast = this.head;
-			Node prevNode = null;
-			while (nextLast.getNext() != null) {
-				prevNode = nextLast;
-				nextLast = nextLast;
-				result = nextLast;
+			Node prevNode = this.head;
+			Node removedNode = prevNode.getNext();
+			while (removedNode.getNext() != null) {
+				prevNode = removedNode;
+				removedNode = removedNode.getNext();
 			}
+			result = removedNode;
 			prevNode.setNext(null);
 		}
 		this.size--;

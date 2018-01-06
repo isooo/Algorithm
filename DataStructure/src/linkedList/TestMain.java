@@ -19,6 +19,7 @@ public class TestMain {
 
 		Node removeLast1 = list.removeLast();
 		System.out.println("removed : " + removeLast1.getValue());
+		
 
 	}// main()
 
