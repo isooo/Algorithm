@@ -20,7 +20,7 @@ public class LinkeList {
 		Node newNode = new Node(newValue);
 		
 		if (this.head == null) {
-			this.head = new Node(newValue);
+			this.head = newNode;
 		} else {
 			newNode.setNext(this.head);
 			this.head = newNode;
@@ -33,7 +33,7 @@ public class LinkeList {
     	Node newNode = new Node(newValue);
     	
     	if (this.head == null) {
-    		head = new Node(newValue);
+    		head = newNode;
     	} else {
     		newNode.setNext(null);
     		Node findLast = this.head;
@@ -47,9 +47,9 @@ public class LinkeList {
     	printList();
     }// addLast
 
-    public void insert(int index, Node input){
-
-    }// insert
+    public void insert(int index, String inputValue){
+    	
+    }// insert()
 
     public Node removeFirst(){
     	
@@ -80,7 +80,6 @@ public class LinkeList {
 
     public void printList(){
 
-    	
     	if (this.head == null) {
     		System.out.println("There is no Node..");
     	} else {
