@@ -85,12 +85,12 @@ public class LinkeList {
     		System.out.println("There is no Node..");
     	} else {
     		Node node = this.head;
+    		System.out.print(this.size + " : ");
     		while (node != null) {
-    			System.out.print(node.getValue() + " ");
+    			System.out.print(node.getValue() + "  ");
     			node = node.getNext();
     		}
     	}// else
-
     	System.out.println();
     	
     }// printList()
