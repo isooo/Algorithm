@@ -1,4 +1,4 @@
-package com.acorn.linkedlist;
+package linkedList;
 
 public class LinkeList {
     private Node head;
