@@ -1,6 +1,6 @@
-package com.acorn.linkedlist;
+package linkedList;
 
-public class Main {
+public class ListSolution {
 
     public static void main( String[] args ){
 
