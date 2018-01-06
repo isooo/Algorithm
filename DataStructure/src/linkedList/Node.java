@@ -3,8 +3,13 @@ package linkedList;
 public class Node {
     private String value;
     private Node next;
+    
+    public Node(String value) {
+		this.value = value;
+		this.next = null;
+	}
 
-    public void setValue(String value) {
+	public void setValue(String value) {
         this.value = value;
     }
 
