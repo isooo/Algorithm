@@ -16,7 +16,7 @@ public class Main {
 
         list.insert(3, new Node(9));
         list.insert(1, new Node(8));
-
+®
         list.size();
 
         list.get(2);
