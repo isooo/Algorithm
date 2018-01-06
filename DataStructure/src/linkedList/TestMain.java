@@ -22,7 +22,9 @@ public class TestMain {
 		
 		Node removed = list.remove(4);
 		System.out.println("removed : " + removed.getValue());
-		
+
+		Node getNode = list.get(2);
+		System.out.println("get : " + getNode.getValue());
 		
 	}// main()
 

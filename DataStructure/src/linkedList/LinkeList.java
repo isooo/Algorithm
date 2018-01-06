@@ -156,12 +156,16 @@ public class LinkeList {
 
 		Node result = null;
 		int cnt = 0;
+		Node curNode = this.head;
 		while (cnt < index) {
-			if (cnt == index) {
-
+			if (cnt == index - 1) {
+				result = curNode;
+			} else {
+				curNode = curNode.getNext();
 			}
 			cnt++;
 		}
+		printList("get");
 		return result;
 	}// get()
 
