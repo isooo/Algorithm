@@ -68,7 +68,7 @@ public class LinkeList {
 					prevNode = prevNode.getNext();
 					cnt++;
 				}
-			} // for
+			} // whichc
 		} // else
 		this.size++;
 
@@ -119,8 +119,34 @@ public class LinkeList {
 
 	public Node remove(int index) {
 
+		Node result = null;
+		
+		if (this.head == null || this.size < index) {
+			System.out.println("There is no Node which corresponded that index");
+			return null;
+		} else {
+			Node prevNode = this.head;
+			Node removedNode = prevNode.getNext();
+
+			int cnt = 1;
+			
+			while (cnt < index) {
+				
+				if (cnt == index - 1) {
+					result = removedNode;
+					prevNode.setNext(removedNode.getNext());
+					break;
+				} else {
+					prevNode = removedNode;
+					removedNode = removedNode.getNext();
+					cnt++;
+				}
+			} // while
+		} // else
 		this.size--;
-	}
+		printList("remove");
+		return result;
+	}// remove()
 
 	public int size() {
 		return this.size;
