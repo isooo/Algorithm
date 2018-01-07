@@ -6,6 +6,11 @@ public class TestMain {
 		
 		Stack stack = new Stack();
 		
+		stack.push("one");
+		stack.push("two");
+		stack.push("three");
+		
+		
 	}// main()
 
 }
