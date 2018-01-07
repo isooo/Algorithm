@@ -13,6 +13,11 @@ public class TestMain {
 		Node peekNode = stack.peek();
 		System.out.println("stack.peek() ==> " + peekNode.getValue());
 		
+		stack.pop();
+		stack.pop();
+		stack.pop();
+		stack.pop();
+
 	}// main()
 
 }

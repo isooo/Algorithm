@@ -7,7 +7,7 @@ package stack;
 public class Stack {
 
     private Node top;
-    private static int size = 0;
+    private int size = 0;
 
     /**
      * @param input
@@ -38,10 +38,28 @@ public class Stack {
     	printStack();
     }// push()
 
-    public Node pop(){
+    
+    public void pop(){
 
-    }
+    	if (isEmpty()) {
+    		System.out.println("There is no Node to pop()");
+    		return;
+    	} else {
+    		
+    		Node hasNext = this.top;
+    		Node newTop = hasNext;
+    		while (hasNext.getNext() != null) {
+    			newTop = hasNext;
+    			hasNext = hasNext.getNext();
+    		}// while
+    		newTop.setNext(null);
+    	}// else
+    	
+    	this.size--;
+    	printStack();
+    }// pop()
 
+    
     public Node peek(){
 
     	Node result = this.top;
@@ -57,6 +75,7 @@ public class Stack {
     	return result;
     }// peek()
 
+    
     public boolean isEmpty(){
     	return this.size == 0;
     }// isEmpty()
@@ -65,15 +84,15 @@ public class Stack {
     public void printStack() {
     	
     	Node hasNext = this.top;
-    	
-    	System.out.print("bottom [ ");
+    	System.out.println("stack(" + this.size + ") : ");
+    	System.out.print(" \tbottom [ ");
     	
     	do {
     		System.out.print(" " + hasNext.getValue() + " ");
     		hasNext = hasNext.getNext();
     	} while (hasNext != null);
     	
-    	System.out.print(" ] top \n");
+    	System.out.print(" ] top \n\n");
     		
     }// printStack()
     
