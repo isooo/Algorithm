@@ -34,7 +34,7 @@ public class  Stack {
         } else {
             Node prev = this.head;
             Node tmp = this.head.getNext();
-            while( tmp.getNext() != null) {
+            for(int i = 0; i < this.top; i++){
                 prev = prev.getNext();
                 tmp = tmp.getNext();
             }
@@ -56,7 +56,7 @@ public class  Stack {
             System.out.println("Error:::: Stack is Empty");
         } else {
             Node tmp = this.head.getNext();
-            while (tmp.getNext() != null) {
+            for(int i = 0; i < this.top; i++){
                 tmp = tmp.getNext();
             }
             result = tmp;
