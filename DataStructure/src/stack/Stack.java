@@ -44,7 +44,18 @@ public class Stack {
 
     public Node peek(){
 
-    }
+    	Node result = this.top;
+    	
+    	if (isEmpty()) {
+    		System.out.println("There is no Node");
+    		result = null;
+    	} else {
+    		while (result.getNext() != null) {
+    			result = result.getNext();
+    		}// while 
+    	}// else
+    	return result;
+    }// peek()
 
     public boolean isEmpty(){
     	return this.size == 0;
