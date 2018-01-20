@@ -18,4 +18,4 @@ proguard/
 # Intellij project files
 *.ipr
 *.iws
-/.idea/
+.idea/
