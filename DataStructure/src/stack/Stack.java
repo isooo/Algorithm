@@ -1,5 +1,5 @@
 
-package com.acorn.stack;
+package stack;
 
 
 public class  Stack {
