@@ -1,11 +1,13 @@
-package com.acorn.stack;
+package stack;
+/*
 
 public class Stack {
 
     private Node head;
     private Node top;
 
-    public void push(Node input){
+    public void push(Node input)
+    {
 
     }
 
@@ -21,3 +23,4 @@ public class Stack {
 
     }
 }
+*/
