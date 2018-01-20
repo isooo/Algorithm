@@ -1,8 +1,9 @@
 알고리즘 스터디
 
-### by jsyoon from opentutorial source 
+since 2017년 12월 16일
 
->source 
+171216 : LinkedList
 
-https://opentutorials.org/module/1335/8857#entirecode
+180106 : Stack
 
+180120 : Queue
