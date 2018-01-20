@@ -1,4 +1,6 @@
-package stack;
+
+package com.acorn.stack;
+
 
 public class  Stack {
 

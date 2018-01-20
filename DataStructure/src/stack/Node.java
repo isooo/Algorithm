@@ -1,4 +1,5 @@
-package stack;
+package com.acorn.stack;
+
 
 public class Node {
     private Object value;
