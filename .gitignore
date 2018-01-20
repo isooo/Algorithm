@@ -1,1 +1,5 @@
 *.class
+ ./DataStructure/.classpath
+ ./DataStructure/.idea/
+ .project
+ .classpath

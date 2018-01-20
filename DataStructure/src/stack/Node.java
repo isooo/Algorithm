@@ -1,5 +1,6 @@
 package com.acorn.stack;
 
+
 public class Node {
     private Object value;
     private Node next;
