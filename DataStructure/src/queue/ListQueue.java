@@ -7,7 +7,7 @@ public class ListQueue {
     private class Node{
 
         // 노드는 data와 다음 노드를 가진다.
-        private Object  data;
+        private Object  data;   
         private Node nextNode;
 
         Node(Object data){
