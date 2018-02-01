@@ -1,3 +1,8 @@
+<<<<<<< HEAD:DataStructure/src/stack/Stack.java
+=======
+package stack;
+/*
+>>>>>>> b2eda9f6babddf326902794ecfbf9b8711c73373:src/stack/Stack.java
 
 package stack;
 
@@ -7,10 +12,15 @@ public class  Stack {
     private Node head;
     private int top;
 
+<<<<<<< HEAD:DataStructure/src/stack/Stack.java
     public Stack(){
         this.head   = new Node();
         this.top    = -1;
     }
+=======
+    public void push(Node input)
+    {
+>>>>>>> b2eda9f6babddf326902794ecfbf9b8711c73373:src/stack/Stack.java
 
     public void push(Node input){
         if(isEmpty()) {
@@ -89,3 +99,4 @@ public class  Stack {
         }
     }
 }
+*/

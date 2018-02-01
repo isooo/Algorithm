@@ -1,5 +1,8 @@
 package stack;
+<<<<<<< HEAD:DataStructure/src/stack/Node.java
 
+=======
+>>>>>>> b2eda9f6babddf326902794ecfbf9b8711c73373:src/stack/Node.java
 
 public class Node {
     private Object value;
