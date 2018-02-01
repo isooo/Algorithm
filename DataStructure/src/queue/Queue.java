@@ -10,7 +10,7 @@ public class Queue {
      * @param input
      */
     public void enQueue(Node input){
-
+    	//return null;
     }
 
     /**
@@ -18,7 +18,7 @@ public class Queue {
      * @return
      */
     public Node deQueue(){
-
+        return null;
     }
 
     /**
@@ -26,10 +26,10 @@ public class Queue {
      * @return
      */
     public Node element(){
-
+    	return null;
     }
 
     public boolean isEmpty(){
-
+    	return false;
     }
 }
