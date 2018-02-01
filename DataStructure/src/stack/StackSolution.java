@@ -3,7 +3,7 @@ package stack;
 public class StackSolution {
     public static void main(String[] args){
         Stack stack = new Stack();
-
+System.out.println("test");
         stack.pop();
         stack.push(new Node(1));
         stack.push(new Node(2));
