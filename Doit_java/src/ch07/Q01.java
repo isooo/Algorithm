@@ -144,6 +144,30 @@ class IntSet {
         num = 0;
     }
 
+    // s와 교집합 만들기
+    public boolean retain(IntSet s) {
+        boolean flag = false;
+        for(int i = 0 ; i < num ; i++) {
+            if(s.contains(set[i]) == false) {
+                remove(set[i]);
+                flag = true;
+            }
+        }
+        return flag;
+    }
+
+    // s와 차집합 만들기
+    public boolean remove(IntSet s) {
+        boolean flag = false;
+        for(int i = 0 ; i < num ; i++) {
+            if(s.contains(set[i]) == true) {
+                remove(set[i]);
+                flag = true;
+            }
+        }
+        return flag;
+    }
+
     // 문자열로 print
     @Override
     public String toString() {
