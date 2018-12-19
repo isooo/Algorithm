@@ -2,21 +2,20 @@ package ch07;
 
 public class Q01 {
     public static void main(String[] args) {
-        IntSet s1 = new IntSet(20);
-        IntSet s2 = new IntSet(20);
-        IntSet s3 = new IntSet(20);
 
-        s1.add(10);
-        s1.add(15);
-        s1.add(20);
-        s1.add(25);
-
-        s1.copyTo(s2);
-        s2.add(12);
-        s2.remove(25);
-
-        s3.copyFrom(s2);
-
+        IntSet s1 = new IntSet(5);
+        IntSet s2 = new IntSet(3);
+        s1.add(1);
+        s1.add(3);
+        s1.add(7);
+        s1.add(2);
+        s1.add(5);
+        s2.copyFrom(s1);
+        s2.remove(3);
+        s2.add(10);
+        System.out.println("s2 : " + s2);
+        System.out.println("s2는 s1의 부분집합인가 ==> " + s2.isSubsetOf(s1));
+        System.out.println("s2는 s1의 진부분집합인가 ==> " + s2.isProperSubsetOf(s1));
 
     }
 }
@@ -167,6 +166,35 @@ class IntSet {
         }
         return flag;
     }
+
+    // s의 부분집합인지 확인
+     public boolean isSubsetOf(IntSet s) {
+        if(num <= s.num) {
+            for(int i = 0 ; i < num ; i++) {
+                int j = 0;
+                for(; j < s.num ; j++) {
+                    if(s.set[j] == set[i]) {
+                       break;
+                    }
+                }
+                if(j == s.num) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
+     }
+
+    // s의 진부분집합인지 확인
+     public boolean isProperSubsetOf(IntSet s) {
+        boolean flag = false;
+        if(num < s.num) {
+            flag = isSubsetOf(s);
+        }
+        return flag;
+     }
+
 
     // 문자열로 print
     @Override
