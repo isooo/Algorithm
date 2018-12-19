@@ -3,20 +3,30 @@ package ch07;
 public class Q01 {
     public static void main(String[] args) {
 
-        IntSet s1 = new IntSet(5);
-        IntSet s2 = new IntSet(3);
+        IntSet s1 = new IntSet(7);
+        IntSet s2 = new IntSet(5);
         s1.add(1);
         s1.add(3);
         s1.add(7);
+        s1.add(20);
+        s1.add(32);
         s1.add(2);
         s1.add(5);
         s2.copyFrom(s1);
-        s2.remove(3);
+        s2.remove(7);
         s2.add(10);
-        System.out.println("s2 : " + s2);
-        System.out.println("s2는 s1의 부분집합인가 ==> " + s2.isSubsetOf(s1));
-        System.out.println("s2는 s1의 진부분집합인가 ==> " + s2.isProperSubsetOf(s1));
 
+        System.out.println("s1 :: " + s1);
+        System.out.println("s2 :: " + s2);
+
+        System.out.println("---------------------------------------");
+        IntSet s3 = new IntSet(10);
+        s3.differenceOf(s1, s2);
+        System.out.println("s3 : " + s3);
+        System.out.println("---------------------------------------");
+        IntSet s4 = new IntSet(10);
+        s4.differenceOf2(s1, s2);
+        System.out.println("s4 : " + s4);
     }
 }
 
@@ -73,7 +83,6 @@ class IntSet {
     // 집합에서 n 삭제
     public boolean remove(int n) {
         int idx;
-
         if(num <= 0 || (idx = indexOf(n)) == -1) {
             return false;
         } else {
@@ -148,7 +157,7 @@ class IntSet {
         boolean flag = false;
         for(int i = 0 ; i < num ; i++) {
             if(s.contains(set[i]) == false) {
-                remove(set[i]);
+                remove(set[i--]);
                 flag = true;
             }
         }
@@ -160,7 +169,7 @@ class IntSet {
         boolean flag = false;
         for(int i = 0 ; i < num ; i++) {
             if(s.contains(set[i]) == true) {
-                remove(set[i]);
+                remove(set[i--]);
                 flag = true;
             }
         }
@@ -195,8 +204,36 @@ class IntSet {
         return flag;
      }
 
+     // s1과 s2의 교집합을 복사
+    public void intersectionOf(IntSet s1, IntSet s2) {
+        clear();
+        IntSet tmp = new IntSet(s1.num);
+        tmp.copyFrom(s1);
+        tmp.retain(s2);
+        copyFrom(tmp);
+    }
 
-    // 문자열로 print
+    // s1과 s2의 차집합을 복사
+    public void differenceOf(IntSet s1, IntSet s2) {
+        clear();
+        for(int i = 0 ; i < s1.num ; i++) {
+            if(!s2.contains(s1.set[i])) {
+                add(s1.set[i]);
+            }
+        }
+    }
+
+    public void differenceOf2(IntSet s1, IntSet s2) {
+        clear();
+        IntSet tmp = new IntSet(s1.num);
+        tmp.copyFrom(s1);
+        tmp.remove(s2);
+        copyFrom(tmp);
+    }
+
+
+
+     // 문자열로 print
     @Override
     public String toString() {
         StringBuffer bf = new StringBuffer("{ ");
