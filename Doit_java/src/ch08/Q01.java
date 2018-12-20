@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Q01 {
 
+    // 가장 앞쪽의 인덱스 반환
     static int bfMatch(String txt, String pat) {
         int pt = 0;     // txt 커서
         int pp = 0;     // pat 커서
@@ -60,6 +61,32 @@ public class Q01 {
         }
     }
 
+    // 가장 뒤쪽의 인덱스 반환
+    public static int bfMatchLast(String txt, String pat) {
+        int pt = txt.length() - 1;
+        int pp = pat.length() - 1;
+
+        while(pt >= 0 && pp >= 0) {
+            if(txt.charAt(pt) == pat.charAt(pp)) {
+                pt--;
+                pp--;
+            } else {
+                pt = pat.length() - pp + pt - 1 - 1;
+                // pp를 기준으로 몇 칸 진행되었는지 확인 후,
+                // pt 에다 더하고 -1 하면 --> 현재 확인중인 pt 의 시작지점이 나올 것이고
+                // 그 위치에서 -1 하여 새로운 pt 의 위치부터 다시 검색하면 된다
+                pp = pat.length() - 1;
+            }
+        }
+
+        if(pp < 0) {
+//            return pt + 1 + pat.length();       // 검색 성공 했을경우엔, txt의 마지막 순서 반환
+            return pt + 1;
+        } else  {
+            return -1;
+        }
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("텍스트 : ");
@@ -80,6 +107,9 @@ public class Q01 {
             len += s2.length();
             System.out.println((idx + 1) + "번째 문자부터 일치합니다.");
         }
+
+        int idxLast = bfMatchLast(s1, s2);
+        System.out.println("idxLast : " + idxLast + " // lastIndexOf : " + s1.lastIndexOf(s2));
     }
 
 }
