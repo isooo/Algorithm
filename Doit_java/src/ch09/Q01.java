@@ -4,6 +4,27 @@ import java.util.Comparator;
 
 public class Q01 {
 
+    public static void main(String[] args) {
+
+        LinkedList<String> str = new LinkedList<>();
+        str.addFirst("첫번째");
+        str.addLast("두번째");
+        str.addLast("카피");
+        str.addLast("세번째");
+        str.addLast("네번째");
+        str.addLast("카피");
+        str.addLast("다섯번째");
+        str.addLast("카피");
+        str.addLast("여섯번째");
+        str.addLast("마지막");
+
+        str.dump();
+
+        System.out.println("==============================================");
+
+        str.purge();
+
+    }
 
 }
 
@@ -148,5 +169,36 @@ class LinkedList<E> {
             System.out.println("\t" + ptr.data);
             ptr = ptr.next;
         }
+    }
+
+
+    // 동일한 노드를 찾아, 가장 앞쪽 노드만 남기고 나머진 삭제하기
+    public void purge(Comparator<? super E> c) {
+        Node<E> ptr = head;
+
+        while(ptr != null) {
+            int cnt = 0;
+            Node<E> ptr2 = ptr;
+            Node<E> pre = ptr;
+
+            while(pre.next != null) {
+                ptr2 = pre.next;
+                if(c.compare(ptr.data, ptr2.data) == 0) {
+                    pre.next = ptr2.next;
+                    cnt++;
+                } else {
+                    pre = ptr2;
+                }
+            }
+
+            if(cnt == 0) {
+                ptr = ptr.next;
+            } else {
+                Node<E> tmp = ptr;
+                remove(ptr);
+                ptr = tmp.next;
+            }
+        }
+        crnt = head;
     }
 }
