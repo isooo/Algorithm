@@ -5,7 +5,6 @@ import java.util.Comparator;
 public class Q01 {
 
     public static void main(String[] args) {
-
         LinkedList<String> str = new LinkedList<>();
         str.addFirst("첫번째");
         str.addLast("두번째");
@@ -22,7 +21,9 @@ public class Q01 {
 
         System.out.println("==============================================");
 
-        str.purge();
+        str.purge(String::compareTo);
+
+        str.dump();
 
     }
 
@@ -195,10 +196,17 @@ class LinkedList<E> {
                 ptr = ptr.next;
             } else {
                 Node<E> tmp = ptr;
-                remove(ptr);
+                remove(ptr2);
                 ptr = tmp.next;
             }
         }
         crnt = head;
+    }
+
+    // 머리부터 n개 뒤의 노드에 대한 참조
+    public E retrieve(int n) {
+
+
+        return null;
     }
 }
