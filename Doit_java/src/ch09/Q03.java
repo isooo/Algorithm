@@ -211,9 +211,7 @@ class LinkedListT<E> {
                 ptr = ptr.next;
             } else if(tmp != null) {
                 Node<E> tmp2 = ptr;
-                remove(tmp);
                 ptr = tmp2.next;
-
             }
         }
         crnt = head;
