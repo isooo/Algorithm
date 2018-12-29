@@ -88,4 +88,20 @@ class AryLinkedList<E> {
             n[head].set(obj, ptr);
         }
     }
+
+    public void addLast(E obj) {
+        if(head == NULL) {
+            addFirst(obj);
+        } else {
+            int ptr = head;
+            while(n[ptr].next != NULL) {
+                ptr = n[ptr].next;
+            }
+            int rec = getInsertIndex();
+            if(rec != NULL) {               // 인덱스 rec인 record에 삽입
+                n[ptr].next = crnt = rec;
+                n[rec].set(obj, NULL);
+            }
+        }
+    }
 }
