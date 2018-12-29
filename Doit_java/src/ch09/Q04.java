@@ -104,4 +104,96 @@ class AryLinkedList<E> {
             }
         }
     }
+
+    // 머리 노드를 삭제
+    public void removeFirst() {
+        if(head != NULL) {
+            int ptr = n[head].next;
+            deleteIndex(head);
+            head = crnt = ptr;
+        }
+    }
+
+    // 꼬리 노드를 삭제
+    public void removeLast() {
+        if(head != NULL) {
+            if(n[head].next == NULL) {
+                removeFirst();          // 노드가 하나만 있으면 머리 노드를 삭제
+            } else {
+                int ptr = head;         // 스캔 중인 노드
+                int pre = head;         // 스캔 중인 노드의 앞쪽 노드
+
+                while(n[ptr].next != NULL) {
+                    pre = ptr;
+                    ptr = n[ptr].next;
+                }
+                n[pre].next = NULL;     // pre는 삭제 후의 꼬리 노드
+                deleteIndex(pre);
+                crnt = pre;
+            }
+        }
+    }
+
+    // record p를 삭제
+    public void remove(int p) {
+        if(head != NULL) {
+            if(p == head) {
+                removeFirst();
+            } else {
+                int ptr = head;
+
+                while(n[ptr].next != p) {
+                    ptr = n[ptr].next;
+                    if(ptr == NULL) {
+                        return;
+                    }
+                }
+                n[ptr].next = NULL;
+                deleteIndex(ptr);
+                n[ptr].next = n[p].next;
+                crnt = ptr;
+            }
+        }
+    }
+
+    // 선택 노드를 삭제
+    public void removeCurrentNode() {
+        remove(crnt);
+    }
+
+    // 모든 노드를 삭제
+    public void clear() {
+        while(head != NULL) {
+            removeFirst();
+        }
+        crnt = NULL;
+    }
+
+    // 선택 노드를 하나 뒤쪽으로 이동
+    public boolean next() {
+        if(crnt == NULL || n[crnt].next == NULL) {
+            return false;
+        }
+        crnt = n[crnt].next;
+        return true;
+    }
+
+    // 선택 노드를 출력
+    public void printCurrentNode() {
+        if(crnt == NULL) {
+            System.out.println("선택 노드가 없습니다.");
+        } else {
+            System.out.println(n[crnt].data);
+        }
+    }
+
+    // 모든 노드를 출력
+    public void dump() {
+        int ptr = head;
+
+        while(ptr != NULL) {
+            System.out.println(n[ptr].data);
+            ptr = n[ptr].next;
+        }
+    }
 }
