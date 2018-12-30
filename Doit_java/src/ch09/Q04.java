@@ -6,13 +6,13 @@ public class Q04 {
     public static void main(String[] args) {
         AryLinkedList<String> list = new AryLinkedList<>(8);
         list.addFirst("첫번째");
-        list.addFirst("두번째");
-        list.addFirst("카피");
-        list.addFirst("세번째");
-        list.addFirst("카피");
-        list.addFirst("카피");
-        list.addFirst("네번째");
-        list.addFirst("카피");
+        list.addLast("두번째");
+        list.addLast("카피");
+        list.addLast("세번째");
+        list.addLast("카피");
+        list.addLast("카피");
+        list.addLast("네번째");
+        list.addLast("카피");
         list.dump();
 
         list.purge(new Comparator<String>() {
@@ -230,17 +230,27 @@ class AryLinkedList<E> {
                 if (c.compare(n[ptr].data, n[ptr2].data) == 0) {
                     remove(ptr2);
                     count++;
-                } else
+                } else {
                     pre = ptr2;
+                }
             }
-            if (count == 0)
-                ptr = n[ptr].next;
-            else {
-                int temp = n[ptr].next;
-                remove(ptr);
-                ptr = temp;
-            }
+            ptr = n[ptr].next;
         }
         crnt = head;
+    }
+
+    // 머리부터 num개 뒤의 노드에 대한 참조
+    public E retrieve(int num) {
+
+        int ptr = head;
+
+        while(ptr != NULL && num >= 0) {
+            if(num-- == 0) {
+                crnt = ptr;
+                return n[ptr].data;
+            }
+            ptr = n[ptr].next;
+        }
+        return null;
     }
 }
