@@ -87,11 +87,11 @@ class CircLinkedList<E> {
 
     // 꼬리에 노드 삽입
     public void addLast(E obj) {
-        if(head == null) {      // 리스트가 비어있으면
-            addFirst(obj);      // 머리에 삽입
+        if(head ==  null) {
+            addFirst(obj);
         } else {
-            tail.next = crnt = new Node<E>(obj, null);
-            tail = crnt;
+            Node<E> ptr = tail;
+            ptr.next = new Node<E>(obj, head);
         }
     }
 
