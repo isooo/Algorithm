@@ -111,17 +111,18 @@ class CircLinkedList<E> {
     // 꼬리 노드를 삭제
     public void removeLast() {
         if(head != null) {
-            if(head.next == null) {     // 노드가 하나만 있으면
-                removeFirst();          // 머리 노드를 삭제
+            if(head == tail) {
+                removeFirst();
             } else {
-                Node<E> ptr = head;     // 스캔 중인 노드
-                Node<E> pre = head;     // 스캔 중인 노드의 앞쪽 노드
+                Node<E> ptr = head;     // 스캔중인 노드
+                Node<E> pre = head;     // 스캔중인 노드의 앞 노드
 
-                while(ptr.next != null) {
+                while(ptr.next != head) {
                     pre = ptr;
                     ptr = ptr.next;
                 }
-                pre.next = null;        // pre는 삭제 후의 꼬리 노드
+
+                pre.next = head;
                 tail = crnt = pre;
             }
         }
