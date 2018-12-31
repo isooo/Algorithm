@@ -165,7 +165,7 @@ class CircLinkedList<E> {
 
     // 선택 노드 crnt를 하나 뒤로 이동
     public boolean next() {
-        if(crnt == null || crnt.next == null) {
+        if(crnt == null || crnt.next == head) {
             return false;
         }
         crnt = crnt.next;
