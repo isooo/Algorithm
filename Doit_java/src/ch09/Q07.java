@@ -140,7 +140,7 @@ class CircLinkedList<E> {
 
                 while(ptr.next != target) {
                     ptr = ptr.next;
-                    if(ptr == null) {
+                    if(ptr == head) {
                         return;         // target이 리스트에 없는 경우
                     }
                 }
