@@ -231,14 +231,15 @@ class CircLinkedList<E> {
 
     // 머리부터 n개 뒤의 노드에 대한 참조
     public E retrieve(int n) {
-
-        Node<E> ptr = head;
-        while(n >= 0 && ptr != null) {
-            if(n-- == 0) {
-                crnt = ptr;
-                return ptr.data;
-            }
-            ptr = ptr.next;
+        if(head != null) {
+            Node<E> ptr = head;
+            do {
+                if(n-- == 0) {
+                    crnt = ptr;
+                    return ptr.data;
+                }
+                ptr = ptr.next;
+            } while(n > 0 && ptr != head);
         }
         return null;
     }
