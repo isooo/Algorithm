@@ -98,9 +98,12 @@ class CircLinkedList<E> {
     // 머리 노드를 삭제
     public void removeFirst() {
         if(head != null) {
-            head = crnt = head.next;
-            if(head == null) {
-                tail = null;
+            if(head == tail) {
+                head = tail = crnt = null;
+            } else {
+                Node<E> ptr = head.next;
+                head = crnt = ptr;
+                tail.next = head;
             }
         }
     }
