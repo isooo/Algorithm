@@ -91,7 +91,7 @@ class CircLinkedList<E> {
             addFirst(obj);
         } else {
             Node<E> ptr = tail;
-            ptr.next = new Node<E>(obj, head);
+            ptr.next = crnt = tail = new Node<E>(obj, head);
         }
     }
 
@@ -196,15 +196,19 @@ class CircLinkedList<E> {
 
     // 동일한 노드를 찾아, 가장 앞쪽 노드만 남기고 나머진 삭제하기
     public void purge(Comparator<? super E> c) {
+        if(head == null) {
+            return;
+        }
+
         Node<E> ptr = head;
 
-        while(ptr != null) {
+        do {
             int cnt = 0;
             Node<E> ptr2 = ptr;
             Node<E> pre = ptr;
             Node<E> tmp = null;
 
-            while(pre.next != null) {
+            while(pre.next != head) {
                 ptr2 = pre.next;
                 if(c.compare(ptr.data, ptr2.data) == 0) {
                     pre.next = ptr2.next;
@@ -221,7 +225,7 @@ class CircLinkedList<E> {
                 Node<E> tmp2 = ptr;
                 ptr = tmp2.next;
             }
-        }
+        } while(ptr.next != head);
         crnt = head;
     }
 
