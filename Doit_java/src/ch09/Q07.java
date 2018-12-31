@@ -37,6 +37,11 @@ class CircLinkedList<E> {
         private E data;
         private Node<E> next;   // 뒤쪽포인터
 
+        Node(E data) {
+            this.data = data;
+            this.next = this;
+        }
+
         Node(E data, Node<E> next) {
             this.data = data;
             this.next = next;
@@ -71,10 +76,12 @@ class CircLinkedList<E> {
 
     // 머리에 노드 삽입
     public void addFirst(E obj) {
-        Node<E> ptr = head;
-        head = crnt = new Node<E>(obj, ptr);
-        if(tail == null) {
-            tail = crnt;
+        if(head == null) {
+            head = tail = crnt = new Node<E>(obj);
+        } else {
+            Node<E> ptr = head;
+            head = crnt = new Node<E>(obj, ptr);
+            tail.next = head;
         }
     }
 
