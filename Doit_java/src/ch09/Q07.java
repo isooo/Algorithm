@@ -56,15 +56,15 @@ class CircLinkedList<E> {
 
     // 노드 검색
     public E search(E obj, Comparator<? super E> c) {
-        Node<E> ptr = head;     // 현재 scan중인 노드
-
-        while(ptr != null) {
-            // 검색 성공
-            if(c.compare(obj, ptr.data) == 0) {
-                crnt = ptr;
-                return ptr.data;
-            }
-            ptr = ptr.next;     // 다음 노드를 선택
+        if(head != null) {
+            Node<E> ptr = head;     // 현재 scan중인 노드
+            do {
+                if(c.compare(obj, ptr.data) == 0) {
+                    crnt = ptr;
+                    return ptr.data;
+                }
+                ptr = ptr.next;
+            } while(ptr != head);
         }
         return null;        // 검색 실패
     }
