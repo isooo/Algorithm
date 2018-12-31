@@ -183,11 +183,13 @@ class CircLinkedList<E> {
 
     // 모든 노드를 출력
     public void dump() {
-        Node<E> ptr = head;
+        if(head != null) {
+            Node<E> ptr = head;
 
-        while(ptr != null) {
-            System.out.println("\t" + ptr.data);
-            ptr = ptr.next;
+            do {
+                System.out.println("\t" + ptr.data);
+                ptr = ptr.next;
+            } while(ptr != head);
         }
     }
 
