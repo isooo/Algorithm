@@ -209,4 +209,18 @@ class DbLinkedList<E> {
         }
         crnt = head;
     }
+
+    // 머리부터 n개 뒤의 노드에 대한 참조
+    public E retrieve(int n) {
+        Node<E> ptr = head.next;
+
+        while(n >= 0 && ptr.next != head) {
+            if(n-- == 0) {
+                crnt = ptr;
+                return ptr.data;
+            }
+            ptr = ptr.next;
+        }
+        return null;
+    }
 }
