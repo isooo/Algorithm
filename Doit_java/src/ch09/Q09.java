@@ -3,6 +3,35 @@ package ch09;
 import java.util.Comparator;
 
 public class Q09 {
+
+    public static void main(String[] args) {
+        DbLinkedList<String> str = new DbLinkedList<>();
+        str.addFirst("첫번째");
+        str.addLast("두번째");
+        str.addLast("카피");
+        str.addLast("세번째");
+        str.addLast("카피2");
+        str.addLast("네번째");
+        str.addLast("카피");
+        str.addLast("카피2");
+        str.addLast("카피");
+        str.addLast("다섯번째");
+        str.addLast("카피2");
+        str.addLast("카피2");
+        str.addLast("카피");
+
+        str.dump();
+        System.out.println("==============================================");
+
+        str.purge(String::compareTo);
+
+        str.dump();
+        System.out.println("==============================================");
+
+        str.removeCurrentNode();
+        str.dump();
+
+    }
 }
 
 class DbLinkedList<E> {
@@ -103,7 +132,7 @@ class DbLinkedList<E> {
     }
 
     // 머리에 노드 삽입
-    public void addfirst(E obj) {
+    public void addFirst(E obj) {
         crnt = head;
         add(obj);
     }
@@ -157,5 +186,27 @@ class DbLinkedList<E> {
         while(isEmpty()) {
             removeFirst();
         }
+    }
+
+    // 동일한 노드를 찾은 후, 가장 앞쪽 노드만 남기고 모두 삭제
+    public void purge(Comparator<? super E> c) {
+        Node<E> ptr = head.next;
+
+        while(ptr.next != head) {
+            Node<E> ptr2 = ptr;
+            Node<E> pre = ptr;
+
+            while(pre.next != head) {
+                ptr2 = pre.next;
+                if(c.compare(ptr.data, ptr2.data) == 0) {
+                    pre.next = ptr2.next;
+                } else {
+                    pre = ptr2;
+                }
+            }
+
+            ptr = ptr.next;
+        }
+        crnt = head;
     }
 }
