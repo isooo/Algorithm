@@ -139,7 +139,7 @@ class BinTree<K, V> {
                 break;                                  // 검색 성공
             } else {
                 parent = p;
-                if(compResult < 0) {                    // key가 작고 스캔 중인 노드가 크면
+                if(compResult < 0) {                    // key가 작고, 스캔 중인 노드가 크면
                     isLeftChild = true;                 // 왼쪽 자식으로 내려감
                     p = p.left;
                 } else {
@@ -213,6 +213,56 @@ class BinTree<K, V> {
             System.out.println(target.key + " : " + target.data);
             printSubTreeR(target.left);
         }
+    }
+
+    // 가작 작은 키 값을 갖는 노드를 반환
+    private Node<K, V> getMinNode() {
+        if(root == null) {
+            return null;
+        } else {
+            Node<K, V> p = root;
+            while(p.left != null) {
+                p = p.left;
+            }
+            return p;
+        }
+    }
+
+    // 가장 큰 키 값을 갖는 노드를 반환
+    private Node<K, V> getMaxNode() {
+        if(root == null) {
+            return null;
+        } else {
+            Node<K, V> p = root;
+            while(p.right != null) {
+                p = p.right;
+            }
+            return p;
+        }
+    }
+
+    // 가장 작은 키 값을 반환
+    public K getMinKey() {
+        Node<K, V> p = getMinNode();
+        return (p == null ? null : p.getKey());
+    }
+
+    // 가장 작은 키 값을 갖는 노드의 데이터를 반환
+    public V getDataWithMinKey() {
+        Node<K, V> p = getMinNode();
+        return (p == null ? null : p.getValue());
+    }
+
+    // 가장 큰 키 값을 반환
+    public K getMaxKey() {
+        Node<K, V> p = getMaxNode();
+        return (p == null ? null : p.getKey());
+    }
+
+    // 가장 큰 키 값을 갖는 노드의 데이터를 반환
+    public V getDataWithMaxKey() {
+        Node<K, V> p = getMaxNode();
+        return (p == null ? null : p.getValue());
     }
 }
 
