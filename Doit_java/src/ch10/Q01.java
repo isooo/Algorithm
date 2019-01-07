@@ -5,6 +5,7 @@ import java.util.Comparator;
 public class Q01 {
     public static void main(String[] args) {
 
+/*
         BinTree<Integer, String> bin = new BinTree<>();
 
         bin.add(1, "일");
@@ -19,6 +20,23 @@ public class Q01 {
         bin.print();
         System.out.println("=================================");
         bin.printReverse();
+*/
+
+        BinTree<Integer, String> binR = new BinTree<>(
+                (o1, o2) -> (o1 > o2 ? -1 : (o1 < o2 ? 1 : 0))
+        );
+        binR.add(1, "일");
+        binR.add(2, "이");
+        binR.add(8, "팔");
+        binR.add(6, "육");
+        binR.add(3, "삼");
+        binR.add(5, "오");
+        binR.add(7, "칠");
+        binR.add(4, "사");
+
+        binR.print();
+        System.out.println("=================================");
+        binR.printReverse();
     }
 }
 
