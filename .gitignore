@@ -192,5 +192,8 @@ gradle-app.setting
 
 # test code
 test*.java
+*test/
+test*/
+
 
 # End of https://www.gitignore.io/api/maven,gradle,intellij,intellij+all,intellij+iml
