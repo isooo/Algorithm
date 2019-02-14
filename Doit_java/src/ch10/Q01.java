@@ -89,21 +89,21 @@ class BinTree<K, V> {
     // 두 키 값을 비교
     private int comp(K key1, K key2) {
         // key1이 크면 양수, 동일하면 0
-        return (comparator == null) ? ((Comparable<K>)key1).compareTo(key2) : comparator.compare(key1, key2);
+        return (comparator == null) ? ((Comparable<K>) key1).compareTo(key2) : comparator.compare(key1, key2);
     }
 
     // 키에 의한 검색
     public V search(K key) {
         Node<K, V> p = root;                            // 루트에 주목
 
-        while(true) {
-            if(p == null) {
+        while (true) {
+            if (p == null) {
                 return null;
             }
             int cond = comp(key, p.getKey());           // key와 노드 p의 키를 비교
-            if(cond == 0) {
+            if (cond == 0) {
                 return p.getValue();                    // 검색 성공
-            } else if(cond < 0) {
+            } else if (cond < 0) {
                 p = p.left;                             // 왼쪽 서브 트리에서 검색
             } else {
                 p = p.right;                            // 오른쪽 서브 트리에서 검색
@@ -115,16 +115,16 @@ class BinTree<K, V> {
     private void addNode(Node<K, V> node, K key, V data) {
         int cond = comp(key, node.getKey());
 
-        if(cond == 0) {
+        if (cond == 0) {
             return;
-        } else if(cond < 0) {
-            if(node.left == null) {
+        } else if (cond < 0) {
+            if (node.left == null) {
                 node.left = new Node<K, V>(key, data, null, null);
             } else {
                 addNode(node.left, key, data);          // 왼쪽 서브트리에 주목
             }
         } else {
-            if(node.right == null) {
+            if (node.right == null) {
                 node.right = new Node<K, V>(key, data, null, null);
             } else {
                 addNode(node.right, key, data);
@@ -134,7 +134,7 @@ class BinTree<K, V> {
 
     // 노드를 삽입
     public void add(K key, V data) {
-        if(root == null) {
+        if (root == null) {
             root = new Node<K, V>(key, data, null, null);
         } else {
             addNode(root, key, data);
@@ -147,17 +147,17 @@ class BinTree<K, V> {
         Node<K, V> parent = null;               // 스캔 중인 노드의 부모 노드
         boolean isLeftChild = true;             // p는 부모의 왼쪽 자식 노드인가?
 
-        while(true) {
-            if(p == null) {                     // 더 이상 진행하지 않으면
+        while (true) {
+            if (p == null) {                     // 더 이상 진행하지 않으면
                 return false;                   // 그 키 값은 없습니다
             }
 
             int compResult = comp(key, p.getKey());     // key와 노드 p의 키 값을 비교
-            if(compResult == 0) {
+            if (compResult == 0) {
                 break;                                  // 검색 성공
             } else {
                 parent = p;
-                if(compResult < 0) {                    // key가 작고, 스캔 중인 노드가 크면
+                if (compResult < 0) {                    // key가 작고, 스캔 중인 노드가 크면
                     isLeftChild = true;                 // 왼쪽 자식으로 내려감
                     p = p.left;
                 } else {
@@ -167,18 +167,18 @@ class BinTree<K, V> {
             }
         }
 
-        if(p.left == null) {                    // p에는 왼쪽 자식이 없음
-            if(p == root) {
+        if (p.left == null) {                    // p에는 왼쪽 자식이 없음
+            if (p == root) {
                 root = p.right;
-            } else if(isLeftChild) {
+            } else if (isLeftChild) {
                 parent.left = p.right;          // p가 부모의 왼쪽 자식일 경우, 부모의 왼쪽 포인터가 p의 오른쪽 자식을 가리킴
             } else {
                 parent.right = p.right;         // 부모의 오른쪽 포인터가, p의 오른쪽 자식을 가리킴 (== p가 삭제됨)
             }
-        } else if(p.right == null) {
-            if(p == root) {
+        } else if (p.right == null) {
+            if (p == root) {
                 root = p.left;
-            } else if(isLeftChild) {
+            } else if (isLeftChild) {
                 parent.left = p.left;
             } else {
                 parent.right = p.left;
@@ -187,7 +187,7 @@ class BinTree<K, V> {
             parent = p;
             Node<K, V> left = p.left;           // 왼쪽 서브트리 가운데 가장 큰 노드
             isLeftChild = true;
-            while(left.right != null) {         // p의 왼쪽 서브트리 가운데 가장 큰 노드를 찾음
+            while (left.right != null) {         // p의 왼쪽 서브트리 가운데 가장 큰 노드를 찾음
                 parent = left;
                 left = left.right;
                 isLeftChild = false;
@@ -196,7 +196,7 @@ class BinTree<K, V> {
             p.key = left.key;                   // left의 key값을 p로 옮김
             p.data = left.data;                 // left의 데이터를 p로 옮김
 
-            if(isLeftChild) {
+            if (isLeftChild) {
                 parent.left = left.left;
             } else {
                 parent.right = left.left;
@@ -207,7 +207,7 @@ class BinTree<K, V> {
 
     // target을 루트로 하는 서브 트리의 노드를 키 값의 오름차순으로 출력
     private void printSubTree(Node target) {
-        if(target != null) {
+        if (target != null) {
             printSubTree(target.left);          // 왼쪽 서브 트리를 키 값의 오름차순으로 출력
             System.out.println(target.key + " : " + target.data);
             printSubTree(target.right);         // 오른쪽 서브 트리를 키 값의 오름차순으로 출력
@@ -226,7 +226,7 @@ class BinTree<K, V> {
 
     // target을 루트로 하는 서브 트리의 노드를, 키 값의 내림차순으로 출력
     private void printSubTreeR(Node target) {
-        if(target != null) {
+        if (target != null) {
             printSubTreeR(target.right);
             System.out.println(target.key + " : " + target.data);
             printSubTreeR(target.left);
@@ -235,11 +235,11 @@ class BinTree<K, V> {
 
     // 가작 작은 키 값을 갖는 노드를 반환
     private Node<K, V> getMinNode() {
-        if(root == null) {
+        if (root == null) {
             return null;
         } else {
             Node<K, V> p = root;
-            while(p.left != null) {
+            while (p.left != null) {
                 p = p.left;
             }
             return p;
@@ -248,11 +248,11 @@ class BinTree<K, V> {
 
     // 가장 큰 키 값을 갖는 노드를 반환
     private Node<K, V> getMaxNode() {
-        if(root == null) {
+        if (root == null) {
             return null;
         } else {
             Node<K, V> p = root;
-            while(p.right != null) {
+            while (p.right != null) {
                 p = p.right;
             }
             return p;

@@ -63,9 +63,9 @@ class LinkedListT<E> {
     public E search(E obj, Comparator<? super E> c) {
         Node<E> ptr = head;     // 현재 scan중인 노드
 
-        while(ptr != null) {
+        while (ptr != null) {
             // 검색 성공
-            if(c.compare(obj, ptr.data) == 0) {
+            if (c.compare(obj, ptr.data) == 0) {
                 crnt = ptr;
                 return ptr.data;
             }
@@ -78,14 +78,14 @@ class LinkedListT<E> {
     public void addFirst(E obj) {
         Node<E> ptr = head;
         head = crnt = new Node<E>(obj, ptr);
-        if(tail == null) {
+        if (tail == null) {
             tail = crnt;
         }
     }
 
     // 꼬리에 노드 삽입
     public void addLast(E obj) {
-        if(head == null) {      // 리스트가 비어있으면
+        if (head == null) {      // 리스트가 비어있으면
             addFirst(obj);      // 머리에 삽입
         } else {
             tail.next = crnt = new Node<E>(obj, null);
@@ -95,9 +95,9 @@ class LinkedListT<E> {
 
     // 머리 노드를 삭제
     public void removeFirst() {
-        if(head != null) {
+        if (head != null) {
             head = crnt = head.next;
-            if(head == null) {
+            if (head == null) {
                 tail = null;
             }
         }
@@ -105,14 +105,14 @@ class LinkedListT<E> {
 
     // 꼬리 노드를 삭제
     public void removeLast() {
-        if(head != null) {
-            if(head.next == null) {     // 노드가 하나만 있으면
+        if (head != null) {
+            if (head.next == null) {     // 노드가 하나만 있으면
                 removeFirst();          // 머리 노드를 삭제
             } else {
                 Node<E> ptr = head;     // 스캔 중인 노드
                 Node<E> pre = head;     // 스캔 중인 노드의 앞쪽 노드
 
-                while(ptr.next != null) {
+                while (ptr.next != null) {
                     pre = ptr;
                     ptr = ptr.next;
                 }
@@ -124,17 +124,17 @@ class LinkedListT<E> {
 
     // 노드 삭제
     public void remove(Node target) {
-        if(head != null) {
-            if(target == head) {
+        if (head != null) {
+            if (target == head) {
                 removeFirst();
-            } else if(target == tail) {
+            } else if (target == tail) {
                 removeLast();
             } else {
                 Node<E> ptr = head;
 
-                while(ptr.next != target) {
+                while (ptr.next != target) {
                     ptr = ptr.next;
-                    if(ptr == null) {
+                    if (ptr == null) {
                         return;         // target이 리스트에 없는 경우
                     }
                 }
@@ -151,7 +151,7 @@ class LinkedListT<E> {
 
     // 모든 노드를 삭제
     public void clear() {
-        while(head != null) {
+        while (head != null) {
             removeFirst();      // 노드에 아무것도 없을 때까지 머리 노드를 삭제
         }
         crnt = null;
@@ -159,7 +159,7 @@ class LinkedListT<E> {
 
     // 선택 노드 crnt를 하나 뒤로 이동
     public boolean next() {
-        if(crnt == null || crnt.next == null) {
+        if (crnt == null || crnt.next == null) {
             return false;
         }
         crnt = crnt.next;
@@ -168,7 +168,7 @@ class LinkedListT<E> {
 
     // 선택 노드 crnt를 출력
     public void printCurrentNode() {
-        if(crnt == null) {
+        if (crnt == null) {
             System.out.println("선택한 노드가 없습니다.");
         } else {
             System.out.println("선택된 노드 : " + crnt.data);
@@ -179,7 +179,7 @@ class LinkedListT<E> {
     public void dump() {
         Node<E> ptr = head;
 
-        while(ptr != null) {
+        while (ptr != null) {
             System.out.println("\t" + ptr.data);
             ptr = ptr.next;
         }
@@ -190,15 +190,15 @@ class LinkedListT<E> {
     public void purge(Comparator<? super E> c) {
         Node<E> ptr = head;
 
-        while(ptr != null) {
+        while (ptr != null) {
             int cnt = 0;
             Node<E> ptr2 = ptr;
             Node<E> pre = ptr;
             Node<E> tmp = null;
 
-            while(pre.next != null) {
+            while (pre.next != null) {
                 ptr2 = pre.next;
-                if(c.compare(ptr.data, ptr2.data) == 0) {
+                if (c.compare(ptr.data, ptr2.data) == 0) {
                     pre.next = ptr2.next;
                     tmp = ptr2;
                     cnt++;
@@ -207,9 +207,9 @@ class LinkedListT<E> {
                 }
             }
 
-            if(cnt == 0) {
+            if (cnt == 0) {
                 ptr = ptr.next;
-            } else if(tmp != null) {
+            } else if (tmp != null) {
                 Node<E> tmp2 = ptr;
                 ptr = tmp2.next;
             }
@@ -221,8 +221,8 @@ class LinkedListT<E> {
     public E retrieve(int n) {
 
         Node<E> ptr = head;
-        while(n >= 0 && ptr != null) {
-            if(n-- == 0) {
+        while (n >= 0 && ptr != null) {
+            if (n-- == 0) {
                 crnt = ptr;
                 return ptr.data;
             }

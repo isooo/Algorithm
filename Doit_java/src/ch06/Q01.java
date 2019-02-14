@@ -11,7 +11,7 @@ public class Q01 {
         int count = sc.nextInt();
         int[] x = new int[count];
 
-        for(int i = 0 ; i < count ; i++) {
+        for (int i = 0; i < count; i++) {
             System.out.print("x[" + i + "] : ");
             x[i] = sc.nextInt();
         }
@@ -19,15 +19,15 @@ public class Q01 {
         bubbleSort(x, count);
 
         System.out.println("\t\t오름차순으로 정렬 ------");
-        for(int i = 0 ; i < count ; i++) {
+        for (int i = 0; i < count; i++) {
             System.out.print(" " + x[i]);
         }
     }
 
     private static void bubbleSort(int[] x, int count) {
-        for(int i = 0 ; i < count - 1 ; i++) {
-            for(int j = 0 ; j < count - i - 1; j++) {
-                if(x[j] > x[j + 1]) {
+        for (int i = 0; i < count - 1; i++) {
+            for (int j = 0; j < count - i - 1; j++) {
+                if (x[j] > x[j + 1]) {
                     swap(x, j, j + 1);
                 }
             }
@@ -35,8 +35,8 @@ public class Q01 {
     }
 
     static void bubbleSortAnswer(int[] x, int count) {
-        for(int i = count - 1 ; i > 0 ; i--) {
-            for(int j = 0 ; j < i ; j++) {
+        for (int i = count - 1; i > 0; i--) {
+            for (int j = 0; j < i; j++) {
                 if (x[j] > x[j + 1])
                     swap(x, j, j + 1);
             }

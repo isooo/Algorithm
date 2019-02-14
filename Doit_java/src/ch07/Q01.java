@@ -38,9 +38,9 @@ class IntSet {
     public IntSet(int capacity) {
         num = 0;
         max = capacity;
-        try{
+        try {
             set = new int[max];         // 집합 배열 생성
-        } catch(OutOfMemoryError e) {   // 배열 생성 실패
+        } catch (OutOfMemoryError e) {   // 배열 생성 실패
             max = 0;
         }
     }
@@ -57,8 +57,8 @@ class IntSet {
 
     // n 검색
     public int indexOf(int n) {
-        for(int i = 0 ; i < num ; i++) {
-            if(set[i] == n) {
+        for (int i = 0; i < num; i++) {
+            if (set[i] == n) {
                 return i;
             }
         }
@@ -72,7 +72,7 @@ class IntSet {
 
     // 집합에 n 추가
     public boolean add(int n) {
-        if(num >= max || contains(n) == true) {
+        if (num >= max || contains(n) == true) {
             return false;       // 집합이 가득 차있거나, 이미 n이라는 요소가 존재할 때
         } else {
             set[num++] = n;
@@ -83,7 +83,7 @@ class IntSet {
     // 집합에서 n 삭제
     public boolean remove(int n) {
         int idx;
-        if(num <= 0 || (idx = indexOf(n)) == -1) {
+        if (num <= 0 || (idx = indexOf(n)) == -1) {
             return false;
         } else {
             set[idx] = set[--num];      // 마지막 요소를 삭제한 idx로 옮긴다
@@ -95,7 +95,7 @@ class IntSet {
     public void copyTo(IntSet s) {
         int n = (s.max < num) ? s.max : num;
 
-        for(int i = 0 ; i < n ; i++) {
+        for (int i = 0; i < n; i++) {
             s.set[i] = set[i];
         }
         s.num = n;
@@ -104,7 +104,7 @@ class IntSet {
     // 집합 s를 복사
     public void copyFrom(IntSet s) {
         int n = (s.num < max) ? s.num : max;
-        for(int i = 0 ; i < n ; i++) {
+        for (int i = 0; i < n; i++) {
             set[i] = s.set[i];
         }
         num = n;
@@ -112,17 +112,17 @@ class IntSet {
 
     // 집합 s와 같은지 확인
     public boolean equalTo(IntSet s) {
-        if(num != s.num) {      // 요소 개수 비교
+        if (num != s.num) {      // 요소 개수 비교
             return false;
         }
 
-        for(int i = 0 ; i < num ; i++) {
+        for (int i = 0; i < num; i++) {
             int j = 0;
-            for(;j < s.num ; j++) {
-                if(set[i] == s.set[j]) break;
+            for (; j < s.num; j++) {
+                if (set[i] == s.set[j]) break;
             }
 
-            if(j == s.num) {
+            if (j == s.num) {
                 return false;
             }
         }
@@ -132,7 +132,7 @@ class IntSet {
     // 집합 s1과 s2의 합집합을 복사
     public void unionOf(IntSet s1, IntSet s2) {
         copyFrom(s1);
-        for(int i = 0 ; i < s2.num ; i++) {
+        for (int i = 0; i < s2.num; i++) {
             add(s2.set[i]);
         }
     }
@@ -155,8 +155,8 @@ class IntSet {
     // s와 교집합 만들기
     public boolean retain(IntSet s) {
         boolean flag = false;
-        for(int i = 0 ; i < num ; i++) {
-            if(s.contains(set[i]) == false) {
+        for (int i = 0; i < num; i++) {
+            if (s.contains(set[i]) == false) {
                 remove(set[i--]);
                 flag = true;
             }
@@ -167,8 +167,8 @@ class IntSet {
     // s와 차집합 만들기
     public boolean remove(IntSet s) {
         boolean flag = false;
-        for(int i = 0 ; i < num ; i++) {
-            if(s.contains(set[i]) == true) {
+        for (int i = 0; i < num; i++) {
+            if (s.contains(set[i]) == true) {
                 remove(set[i--]);
                 flag = true;
             }
@@ -177,34 +177,34 @@ class IntSet {
     }
 
     // s의 부분집합인지 확인
-     public boolean isSubsetOf(IntSet s) {
-        if(num <= s.num) {
-            for(int i = 0 ; i < num ; i++) {
+    public boolean isSubsetOf(IntSet s) {
+        if (num <= s.num) {
+            for (int i = 0; i < num; i++) {
                 int j = 0;
-                for(; j < s.num ; j++) {
-                    if(s.set[j] == set[i]) {
-                       break;
+                for (; j < s.num; j++) {
+                    if (s.set[j] == set[i]) {
+                        break;
                     }
                 }
-                if(j == s.num) {
+                if (j == s.num) {
                     return false;
                 }
             }
             return true;
         }
         return false;
-     }
+    }
 
     // s의 진부분집합인지 확인
-     public boolean isProperSubsetOf(IntSet s) {
+    public boolean isProperSubsetOf(IntSet s) {
         boolean flag = false;
-        if(num < s.num) {
+        if (num < s.num) {
             flag = isSubsetOf(s);
         }
         return flag;
-     }
+    }
 
-     // s1과 s2의 교집합을 복사
+    // s1과 s2의 교집합을 복사
     public void intersectionOf(IntSet s1, IntSet s2) {
         clear();
         IntSet tmp = new IntSet(s1.num);
@@ -216,8 +216,8 @@ class IntSet {
     // s1과 s2의 차집합을 복사
     public void differenceOf(IntSet s1, IntSet s2) {
         clear();
-        for(int i = 0 ; i < s1.num ; i++) {
-            if(!s2.contains(s1.set[i])) {
+        for (int i = 0; i < s1.num; i++) {
+            if (!s2.contains(s1.set[i])) {
                 add(s1.set[i]);
             }
         }
@@ -232,12 +232,11 @@ class IntSet {
     }
 
 
-
-     // 문자열로 print
+    // 문자열로 print
     @Override
     public String toString() {
         StringBuffer bf = new StringBuffer("{ ");
-        for(int i = 0 ; i < num ; i++) {
+        for (int i = 0; i < num; i++) {
             bf.append(set[i] + " ");
         }
         bf.append("}");

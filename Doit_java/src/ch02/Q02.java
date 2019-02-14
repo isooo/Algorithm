@@ -9,7 +9,7 @@ public class Q02 {
 
     static int sumOf(int[] a) {
         int sum = 0;
-        for (int i = 0 ; i < a.length ; i++) {
+        for (int i = 0; i < a.length; i++) {
             sum += a[i];
         }
         return sum;
@@ -21,13 +21,13 @@ public class Q02 {
         a[n] = a[m];
         a[m] = t;
 
-        for(int i = 0 ; i < a.length ; i++) {
+        for (int i = 0; i < a.length; i++) {
             System.out.print(a[i] + "  ");
         }
     }
 
     static void reverse(int[] a) {
-        for (int i = 0 ; i < a.length/2 ; i++) {
+        for (int i = 0; i < a.length / 2; i++) {
             swap(a, i, a.length - i - 1);
             System.out.println();
         }
@@ -42,7 +42,7 @@ public class Q02 {
 
         int[] arr = new int[count];
 
-        for (int i = 0 ; i < count ; i++) {
+        for (int i = 0; i < count; i++) {
             System.out.print(i + "번쨰 요소 : ");
             int num = sc.nextInt();
             arr[i] = num;

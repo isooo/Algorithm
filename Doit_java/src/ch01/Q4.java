@@ -4,7 +4,7 @@ package ch01;
     세 정수값의 중앙값을 구하여 나타냄 (모든 조합의 대소관계에 대하여 검증)
  */
 public class Q4 {
-    static int mid3 (int a, int b, int c) {
+    static int mid3(int a, int b, int c) {
         if (a >= b)
             if (b >= c)
                 return b;

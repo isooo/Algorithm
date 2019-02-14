@@ -25,8 +25,8 @@ public class Q08 {
     }
 
     static int leftDayOfYear(int y, int m, int d) {
-        int days = mdays[isLeap(y)][m-1] - d;
-        for (int i = 12 ; i > m ; i--) {
+        int days = mdays[isLeap(y)][m - 1] - d;
+        for (int i = 12; i > m; i--) {
             days += mdays[isLeap(y)][i - 1];
         }
         return days;
@@ -45,7 +45,7 @@ public class Q08 {
         Scanner sc = new Scanner(System.in);
         int retry;
 
-        do{
+        do {
             System.out.print("1. 경과 일 수 구하기 / 2. 남은 일 수 구하기 : ");
             int select = sc.nextInt();
 
@@ -65,7 +65,7 @@ public class Q08 {
             System.out.print("한번 더 할까요? (1. 예 / 0. 아니오) : ");
             retry = sc.nextInt();
 
-        } while(retry != 0);
+        } while (retry != 0);
 
     }
 

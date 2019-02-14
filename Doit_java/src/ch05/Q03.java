@@ -39,7 +39,7 @@ public class Q03 {
     }
 
     static int gcd(int x, int y) {
-        while(y != 0) {
+        while (y != 0) {
             int tmp = x;
             x = y;
             y = tmp % y;

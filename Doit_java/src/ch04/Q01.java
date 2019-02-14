@@ -8,12 +8,12 @@ public class Q01 {
         Scanner sc = new Scanner(System.in);
         IntStack intStack = new IntStack(64); // 최대 64개를 푸시할 수 있는 스택
 
-        while(true) {
+        while (true) {
             System.out.println(">> 현재 데이터 수 : " + intStack.size() + " / " + intStack.capacity());
             System.out.print(">> (1)푸시  (2)팝  (3)피크  (4)덤프  (5)검색  (6)비움  (7)정보표시 (0)종료 ： ");
             int num = sc.nextInt();
 
-            if(num == 0) break;
+            if (num == 0) break;
 
             int x;
             switch (num) {
@@ -58,7 +58,7 @@ public class Q01 {
                     x = sc.nextInt();
                     try {
                         int result = intStack.indexOf(x);
-                        if(result <= 0) {
+                        if (result <= 0) {
                             System.out.println("데이터가 존재하지 않습니다.");
                         } else {
                             System.out.println(x + "는 꼭대기로부터 " + (intStack.size() - result) + "에 있습니다.");
@@ -91,39 +91,41 @@ class IntStack {
     private int[] stk;
 
     public class EmptyIntStackException extends RuntimeException {
-        public EmptyIntStackException() {}
+        public EmptyIntStackException() {
+        }
     }
 
     public class OverflowIntStackException extends RuntimeException {
-        public OverflowIntStackException() {}
+        public OverflowIntStackException() {
+        }
     }
 
     public IntStack(int capacity) {
         this.ptr = 0;
         this.max = capacity;
-        try{
+        try {
             stk = new int[max];
-        } catch(OutOfMemoryError e) {
+        } catch (OutOfMemoryError e) {
             max = 0;
         }
     }
 
     public int push(int x) throws OverflowIntStackException {
-        if(ptr >= max) {
+        if (ptr >= max) {
             throw new OverflowIntStackException();
         }
         return stk[ptr++] = x;
     }
 
     public int pop() throws EmptyIntStackException {
-        if(ptr <= 0) {
+        if (ptr <= 0) {
             throw new EmptyIntStackException();
         }
         return stk[--ptr];
     }
 
     public int peek() throws EmptyIntStackException {
-        if(ptr <= 0) {
+        if (ptr <= 0) {
             throw new EmptyIntStackException();
         }
         return stk[ptr - 1];
@@ -131,8 +133,8 @@ class IntStack {
 
     // 요소의 인덱스 찾기(가장 먼저 pop될 수 있는 요소부터 검색)
     public int indexOf(int x) {
-        for(int i = ptr - 1 ; i >= 0 ; i--) {
-            if(stk[i] == x) {
+        for (int i = ptr - 1; i >= 0; i--) {
+            if (stk[i] == x) {
                 return i;
             }
         }
@@ -164,10 +166,10 @@ class IntStack {
 
     // 스택 안에 있는 모든 데이터를 표시하는 메서드
     public void dump() {
-        if(isEmpty()) {
+        if (isEmpty()) {
             System.out.println("스택이 비어있습니다.");
         } else {
-            for(int i = 0 ; i < ptr ; i++) {
+            for (int i = 0; i < ptr; i++) {
                 System.out.print(stk[i] + "  ");
             }
             System.out.println();

@@ -27,11 +27,11 @@ public class Q05 {
         System.out.print("x[0]의 요소 : ");
         x[0] = sc.nextInt();
 
-        for (int i = 1 ; i < num ; i++) {
-            do{
+        for (int i = 1; i < num; i++) {
+            do {
                 System.out.print("x[" + i + "]의 요소 : ");
                 x[i] = sc.nextInt();
-            } while(x[i] < x[i - 1]);
+            } while (x[i] < x[i - 1]);
         }
 
         System.out.print("찾고자 하는 값 : ");
@@ -53,28 +53,28 @@ public class Q05 {
         int pr = num - 1;
         int result = -1;
 
-        do{
+        do {
             int pc = (pl + pr) / 2;
-            if(x[pc] == value) {
+            if (x[pc] == value) {
                 result = binSearch(x, pc, value);
                 break;
-            } else if(x[pc] < value) {
+            } else if (x[pc] < value) {
                 pl = pc + 1;
             } else {
                 pr = pc - 1;
             }
 
-        } while(pl <= pr);
+        } while (pl <= pr);
 
         return result;
     }
 
-    static int binSearchX(int[] x, int key, int value){
+    static int binSearchX(int[] x, int key, int value) {
 
         int result = key;
-        for(int i = key ; i >= 0 ; i--) {
-            if(x[i] == value) {
-               result = i;
+        for (int i = key; i >= 0; i--) {
+            if (x[i] == value) {
+                result = i;
             }
         }
         return result;
@@ -85,22 +85,22 @@ public class Q05 {
         int pl = 0;
         int pr = num - 1;
 
-        do{
+        do {
             int pc = (pl + pr) / 2;
-            if(x[pc] == value) {
-                for(; pc > pl ; pc--) {
-                    if(x[pc - 1] < value) {
+            if (x[pc] == value) {
+                for (; pc > pl; pc--) {
+                    if (x[pc - 1] < value) {
                         break;
                     }
                 }
                 return pc;
-            } else if(x[pc] < value) {
+            } else if (x[pc] < value) {
                 pl = pc + 1;
             } else {
                 pr = pc - 1;
             }
 
-        } while(pl <= pr);
+        } while (pl <= pr);
 
         return -1;
     }

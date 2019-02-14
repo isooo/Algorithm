@@ -67,8 +67,8 @@ class DbLinkedList<E> {
     public E search(E obj, Comparator<? super E> c) {
         Node<E> ptr = head.next;
 
-        while(ptr != head) {
-            if(c.compare(obj, ptr.data) == 0) {
+        while (ptr != head) {
+            if (c.compare(obj, ptr.data) == 0) {
                 crnt = ptr;
                 return ptr.data;
             }
@@ -79,7 +79,7 @@ class DbLinkedList<E> {
 
     // 선택 노드를 출력
     public void printCurrentNode() {
-        if(isEmpty()) {
+        if (isEmpty()) {
             System.out.println("선택 노드가 없습니다.");
         } else {
             System.out.println("선택 노드 : " + crnt.data);
@@ -90,7 +90,7 @@ class DbLinkedList<E> {
     public void dump() {
         Node<E> ptr = head.next;
 
-        while(ptr != head) {
+        while (ptr != head) {
             System.out.println(ptr.data);
             ptr = ptr.next;
         }
@@ -100,7 +100,7 @@ class DbLinkedList<E> {
     public void dumpReverse() {
         Node<E> ptr = head.prev;
 
-        while(ptr != head) {
+        while (ptr != head) {
             System.out.println(ptr.data);
             ptr = ptr.prev;
         }
@@ -108,7 +108,7 @@ class DbLinkedList<E> {
 
     // 선택 노드를 하나 뒤쪽으로 이동
     public boolean next() {
-        if(isEmpty() | crnt.next == head) {
+        if (isEmpty() | crnt.next == head) {
             return false;       // 이동할 수 없음
         }
         crnt = crnt.next;
@@ -117,7 +117,7 @@ class DbLinkedList<E> {
 
     // 선택 노드를 하나 앞쪽으로 이동
     public boolean prev() {
-        if(isEmpty() | crnt.prev == head) {
+        if (isEmpty() | crnt.prev == head) {
             return false;       // 이동할 수 없음
         }
         crnt = crnt.prev;
@@ -145,11 +145,11 @@ class DbLinkedList<E> {
 
     // 선택 노드를 삭제
     public void removeCurrentNode() {
-        if(!isEmpty()) {
+        if (!isEmpty()) {
             crnt.prev.next = crnt.next;
             crnt.next.prev = crnt.prev;
             crnt = crnt.prev;
-            if(crnt == head) {
+            if (crnt == head) {
                 crnt = head.next;
             }
         }
@@ -159,8 +159,8 @@ class DbLinkedList<E> {
     public void remove(Node p) {
         Node<E> ptr = head.next;
 
-        while(ptr != head) {
-            if(ptr == p) {
+        while (ptr != head) {
+            if (ptr == p) {
                 crnt = p;
                 removeCurrentNode();
                 break;
@@ -183,7 +183,7 @@ class DbLinkedList<E> {
 
     // 모든 노드를 삭제
     public void clear() {
-        while(isEmpty()) {
+        while (isEmpty()) {
             removeFirst();
         }
     }
@@ -192,13 +192,13 @@ class DbLinkedList<E> {
     public void purge(Comparator<? super E> c) {
         Node<E> ptr = head.next;
 
-        while(ptr.next != head) {
+        while (ptr.next != head) {
             Node<E> ptr2 = ptr;
             Node<E> pre = ptr;
 
-            while(pre.next != head) {
+            while (pre.next != head) {
                 ptr2 = pre.next;
-                if(c.compare(ptr.data, ptr2.data) == 0) {
+                if (c.compare(ptr.data, ptr2.data) == 0) {
                     pre.next = ptr2.next;
                 } else {
                     pre = ptr2;
@@ -214,8 +214,8 @@ class DbLinkedList<E> {
     public E retrieve(int n) {
         Node<E> ptr = head.next;
 
-        while(n >= 0 && ptr.next != head) {
-            if(n-- == 0) {
+        while (n >= 0 && ptr.next != head) {
+            if (n-- == 0) {
                 crnt = ptr;
                 return ptr.data;
             }

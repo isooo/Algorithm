@@ -8,13 +8,13 @@ public class Q09_2 {
         int h;
 
         int num = 0;
-        for(h = 1 ; h < cnt / 9 ; h = h * 3 + 1);
+        for (h = 1; h < cnt / 9; h = h * 3 + 1) ;
 
-        for(; h > 0 ; h /= 3) {
-            for(int i = h ; i < cnt ; i++) {
+        for (; h > 0; h /= 3) {
+            for (int i = h; i < cnt; i++) {
                 int j;
                 int tmp = a[i];
-                for(j = i - h ; j >= 0 && a[j] > tmp ; j -= h) {
+                for (j = i - h; j >= 0 && a[j] > tmp; j -= h) {
                     a[j + h] = a[j];
                     num++;
                 }
@@ -33,7 +33,7 @@ public class Q09_2 {
         System.out.print("요솟수 : ");
         int cnt = sc.nextInt();
         int[] x = new int[cnt];
-        for(int i = 0 ; i < cnt ; i++) {
+        for (int i = 0; i < cnt; i++) {
             System.out.print("x[" + i + "] : ");
             x[i] = sc.nextInt();
         }
@@ -42,7 +42,7 @@ public class Q09_2 {
 
         System.out.println("오름차순으로 정렬했습니다.");
 
-        for(int i = 0 ; i < cnt ; i++) {
+        for (int i = 0; i < cnt; i++) {
             System.out.println("x[" + i + "] = " + x[i]);
         }
     }

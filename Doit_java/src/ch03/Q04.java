@@ -20,11 +20,11 @@ public class Q04 {
         System.out.print("x[0]의 요소 : ");
         x[0] = sc.nextInt();
 
-        for (int i = 1 ; i < num ; i++) {
-            do{
+        for (int i = 1; i < num; i++) {
+            do {
                 System.out.print("x[" + i + "]의 요소 : ");
                 x[i] = sc.nextInt();
-            } while(x[i] < x[i - 1]);
+            } while (x[i] < x[i - 1]);
         }
 
         System.out.print("찾고자 하는 값 : ");
@@ -43,19 +43,19 @@ public class Q04 {
     static int binSearch(int[] x, int num, int value) {
 
         System.out.print("   |");
-        for (int i = 0 ; i < num ; i++)
+        for (int i = 0; i < num; i++)
             System.out.printf("%4d", i);
         System.out.println();
 
         System.out.print("---+");
-        for (int i = 0 ; i < 4 * num + 2 ; i++)
+        for (int i = 0; i < 4 * num + 2; i++)
             System.out.print("-");
         System.out.println();
 
         int pl = 0;
         int pr = num - 1;
 
-        do{
+        do {
 
             int pc = (pl + pr) / 2;
 
@@ -71,20 +71,20 @@ public class Q04 {
                 System.out.println("->");
 
             System.out.printf("%3d|", pc);
-            for(int j = 0 ; j < num ; j++) {
+            for (int j = 0; j < num; j++) {
                 System.out.printf("%4d", x[j]);
             }
             System.out.println("\n   |");
 
-            if(x[pc] == value) {
+            if (x[pc] == value) {
                 return pc;
-            } else if(x[pc] < value) {
+            } else if (x[pc] < value) {
                 pl = pc + 1;
             } else {
                 pr = pc - 1;
             }
 
-        } while(pl <= pr);
+        } while (pl <= pr);
 
         return -1;
     }

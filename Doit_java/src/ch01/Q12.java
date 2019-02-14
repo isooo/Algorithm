@@ -8,7 +8,7 @@ public class Q12 {
 
     public static void main(String[] args) {
 
-        for (int i = 0 ; i <= 9 ; i++) {
+        for (int i = 0; i <= 9; i++) {
             if (i == 0) {
                 System.out.print("  |");
                 multi(1);
@@ -21,14 +21,14 @@ public class Q12 {
 
     }
 
-    static void multi (int i) {
-        for (int j = 1 ; j <= 9 ;j++) {
+    static void multi(int i) {
+        for (int j = 1; j <= 9; j++) {
             System.out.printf("%3d", i * j);
         }
         System.out.println("");
     }
 
-    static void multiAnswer () {
+    static void multiAnswer() {
         System.out.print("   |");
         for (int i = 1; i <= 9; i++)
             System.out.printf("%3d", i);

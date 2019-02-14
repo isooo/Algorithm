@@ -10,8 +10,8 @@ public class Q01 {
     static int maxOf(int[] n) {
         int max = n[0];
 
-        for (int i = 1 ; i < n.length ; i++) {
-            if(n[i] > max) max = n[i];
+        for (int i = 1; i < n.length; i++) {
+            if (n[i] > max) max = n[i];
         }
 
         return max;
@@ -25,11 +25,11 @@ public class Q01 {
 
         int[] height = new int[count];
 
-        for (int i = 0 ; i < count ; i++) {
+        for (int i = 0; i < count; i++) {
             height[i] = rd.nextInt(99) + 100;
             System.out.println(i + "번째 사람의 키 : " + height[i]);
         }
 
-        System.out.println("가장 큰 키 : " +  maxOf(height));
+        System.out.println("가장 큰 키 : " + maxOf(height));
     }
 }

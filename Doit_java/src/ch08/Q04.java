@@ -16,16 +16,16 @@ public class Q04 {
 
         // 건너뛰기 표 만들기
         System.out.println("건너뛰기 표 만들기");
-        for(pt = 0 ; pt <= Character.MAX_VALUE ; pt++) {
+        for (pt = 0; pt <= Character.MAX_VALUE; pt++) {
             skip[pt] = patLen;
         }
-        for(pt = 0 ; pt < patLen - 1 ; pt++) {
+        for (pt = 0; pt < patLen - 1; pt++) {
             skip[pat.charAt(pt)] = patLen - pt - 1;
             System.out.println("\tskip[" + pat.charAt(pt) + "] ==> " + skip[pat.charAt(pt)] + " ///// patLen : " + patLen + " ///// pt : " + pt);
         }
 
         // 검색 (pat의 끝 문자에 주목)
-        while(pt < txtLen) {
+        while (pt < txtLen) {
             pp = patLen - 1;        // pat의 마지막 문제에 주목
 
             if (k == pt - pp)
@@ -53,8 +53,8 @@ public class Q04 {
             cnt++;
 
 
-            while(txt.charAt(pt) == pat.charAt(pp)) {
-                if(pp == 0) {
+            while (txt.charAt(pt) == pat.charAt(pp)) {
+                if (pp == 0) {
                     return pt;      // 검색 성공
                 }
                 pp--;

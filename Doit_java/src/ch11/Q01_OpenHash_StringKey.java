@@ -1,25 +1,25 @@
 package ch11;
 
-public class Q01_OpenHash {
+public class Q01_OpenHash_StringKey {
     public static void main(String[] args) {
 
-        OpenHash<Integer, String> oh = new OpenHash<>(10);
-        oh.add(15, "십오");
-        oh.add(2, "이");
-        oh.add(25, "이십오");
-        oh.add(7, "칠");
-        oh.add(10, "십");
-        oh.add(5, "오");
+        OpenHashS<String, Integer> oh = new OpenHashS<>(10);
+        oh.add("십오", 15);
+        oh.add("이", 2);
+        oh.add("이십오", 25);
+        oh.add("칠", 7);
+        oh.add("십", 10);
+        oh.add("오", 5);
 
         oh.dump();
         System.out.println("===========================");
 
-        oh.remove(25);
+        oh.remove("이십오");
         oh.dump();
     }
 }
 
-class OpenHash<K, V> {
+class OpenHashS<K, V> {
     enum Status {OCCUPIED, EMPTY, DELETED}
 
     ;     // 데이터 저장, 비어 있음, 삭제 마침
@@ -64,7 +64,7 @@ class OpenHash<K, V> {
     private int size;                   // 해시 테이블의 크기
     private Bucket<K, V>[] table;       // 해시 테이블
 
-    public OpenHash(int size) {
+    public OpenHashS(int size) {
         try {
             table = new Bucket[size];
             for (int i = 0; i < size; i++) {
@@ -78,11 +78,13 @@ class OpenHash<K, V> {
 
     // 해시 값을 구함
     public int hashValue(Object key) {
+        System.out.println("\t>> " + key + "의 해시값 == " + key.hashCode() + " % " + size + " = " + key.hashCode() % size);
         return key.hashCode() % size;
     }
 
     // 재해시 값을 구함
     public int rehashValue(int hash) {
+        System.out.println("\t>> " + hash + " 재해시값 == " + (hash + 1) + " % " + size + " = " + (hash + 1) % size);
         return (hash + 1) % size;
     }
 
@@ -160,3 +162,4 @@ class OpenHash<K, V> {
         }
     }
 }
+

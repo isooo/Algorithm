@@ -5,10 +5,10 @@ import java.util.Scanner;
 public class Q13_2 {
 
     static void insertionSort(int[] a, int left, int right) {
-        for(int i = left + 1 ; i <= right ; i++) {
+        for (int i = left + 1; i <= right; i++) {
             int tmp = a[i];
             int j;
-            for(j = i ; j > left && a[j - 1] > tmp ; j--) {
+            for (j = i; j > left && a[j - 1] > tmp; j--) {
                 a[j] = a[j - 1];
             }
             a[j] = tmp;
@@ -22,7 +22,7 @@ public class Q13_2 {
         lstack.push(left);
         rstack.push(right);
 
-        while(lstack.isEmpty() != true) {
+        while (lstack.isEmpty() != true) {
             int pl = left = lstack.pop();       // 왼쪽커서
             int pr = right = rstack.pop();      // 오른쪽커서
 
@@ -33,12 +33,12 @@ public class Q13_2 {
             rstack.dump();
 
             System.out.printf("\t\ta[%d] ~ a[%d] : {", left, right);
-            for(int i = left ; i < right ; i++) {
+            for (int i = left; i < right; i++) {
                 System.out.printf("%d , ", a[i]);
             }
             System.out.printf("%d}\n", a[right]);
 
-            if(right - left < 9) {
+            if (right - left < 9) {
                 System.out.println(" ### 삽입정렬 시작 : " + left + " ~ " + right);
 
                 insertionSort(a, left, right);
@@ -46,15 +46,15 @@ public class Q13_2 {
                 System.out.println(" ^^^퀵정렬 시작 : " + left + " ~ " + right);
                 int x = a[(left + right) / 2];      // 피벗
 
-                do{
-                    while(a[pl] < x) pl++;
-                    while(a[pr] > x) pr--;
-                    if(pl <= pr) {
+                do {
+                    while (a[pl] < x) pl++;
+                    while (a[pr] > x) pr--;
+                    if (pl <= pr) {
                         swap(a, pl++, pr--);
                     }
-                } while(pl <= pr);
+                } while (pl <= pr);
 
-                if(pr - left < right - pl) {
+                if (pr - left < right - pl) {
                     int tmp = pr;
                     pr = right;
                     right = tmp;
@@ -63,12 +63,12 @@ public class Q13_2 {
                     pl = tmp;
                 }
 
-                if(left < pr) {
+                if (left < pr) {
                     lstack.push(left);
                     rstack.push(pr);
                 }
 
-                if(pl < right) {
+                if (pl < right) {
                     lstack.push(pl);
                     rstack.push(right);
                 }
@@ -99,7 +99,7 @@ public class Q13_2 {
         quickSort(x, 0, cnt - 1);
 
         System.out.print("퀵정렬로 오름차순 정렬 완료 : ");
-        for(int i = 0 ; i < cnt ; i++) {
+        for (int i = 0; i < cnt; i++) {
             System.out.print(" " + x[i]);
         }
     }

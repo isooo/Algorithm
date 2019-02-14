@@ -10,7 +10,7 @@ public class Q03 {
         int nx = sc.nextInt();
         int[] x = new int[nx];
 
-        for(int i = 0 ; i < nx ; i++) {
+        for (int i = 0; i < nx; i++) {
             System.out.print("x[" + i + "] : ");
             x[i] = sc.nextInt();
         }
@@ -23,16 +23,16 @@ public class Q03 {
         int compare = 0;
         int tot_exchange = 0;
 
-        for(int i = 0 ; i < n - 1 ; i++) {
+        for (int i = 0; i < n - 1; i++) {
             System.out.println("패스 " + (i + 1) + " : ");
             int exchange = 0;
-            for(int j = n - 1; j > i ; j--) {
-                for(int m = 0 ; m < n ; m++) {
+            for (int j = n - 1; j > i; j--) {
+                for (int m = 0; m < n; m++) {
                     System.out.printf("%3d %c", x[m], (m != j - 1) ? ' ' : (x[j - 1] > x[j]) ? '+' : '-');
                 }
                 System.out.println();
                 compare++;
-                if(x[j - 1] > x[j]) {
+                if (x[j - 1] > x[j]) {
                     swap(x, j - 1, j);
                     exchange++;
                     tot_exchange++;
@@ -44,7 +44,8 @@ public class Q03 {
                 System.out.printf("%3d  ", x[m]);
             System.out.println();
 
-            if(exchange == 0) break;;
+            if (exchange == 0) break;
+            ;
         }
 
         System.out.println("비교를 " + compare + "회 했습니다.");

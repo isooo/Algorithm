@@ -31,9 +31,9 @@ class IntAryQueue {
     public IntAryQueue(int capacity) {
         this.max = capacity;
         this.num = 0;
-        try{
+        try {
             que = new int[max];
-        } catch(OutOfMemoryError e) {
+        } catch (OutOfMemoryError e) {
             max = 0;
         }
     }
@@ -60,12 +60,12 @@ class IntAryQueue {
     }
 
     public int dequeue() throws EmptyIntAryQueueException {
-        if(num <= 0) {
+        if (num <= 0) {
             throw new EmptyIntAryQueueException();
         }
         int result = que[0];
-        for(int i = 0 ; i < num - 1 ; i++) {
-            que[i] = que[i+1];
+        for (int i = 0; i < num - 1; i++) {
+            que[i] = que[i + 1];
         }
         num--;
         dump();
@@ -74,15 +74,15 @@ class IntAryQueue {
 
     // 큐에서 데이터를 피크(리어쪽 데이터를 살펴봄)
     public int rear() throws EmptyIntAryQueueException {
-        if(num <= 0) {
+        if (num <= 0) {
             throw new EmptyIntAryQueueException();
         }
-        return que[num-1];
+        return que[num - 1];
     }
 
     public int indexOf(int n) {
-        for(int i = 0 ; i < num ; i++) {
-            if(que[i] == n) {
+        for (int i = 0; i < num; i++) {
+            if (que[i] == n) {
                 return i;
             }
         }
@@ -110,11 +110,11 @@ class IntAryQueue {
     }
 
     public void dump() {
-        if(num <= 0) {
+        if (num <= 0) {
             System.out.println("큐가 비었습니다.");
         } else {
             System.out.print("[ ");
-            for(int i = 0 ; i < num ; i++) {
+            for (int i = 0; i < num; i++) {
                 System.out.print(que[i] + " ");
             }
             System.out.println("]");

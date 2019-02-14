@@ -1,7 +1,7 @@
 package stack;
 
 public class StackSolution {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Stack stack = new Stack();
 
         stack.pop();

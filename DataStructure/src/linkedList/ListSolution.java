@@ -2,7 +2,7 @@ package linkedList;
 
 public class ListSolution {
 
-    public static void main( String[] args ){
+    public static void main(String[] args) {
 
         LinkeList list = new LinkeList();
 

@@ -105,7 +105,7 @@ class AryLinkedListT<E> {
         if (rec != NULL) {
             head = crnt = rec; // 인덱스 rec인 record에 삽입
             n[head].set(obj, ptr);
-            if(tail == NULL) {
+            if (tail == NULL) {
                 tail = crnt;
             }
         }
@@ -131,7 +131,7 @@ class AryLinkedListT<E> {
             int ptr = n[head].next;
             deleteIndex(head);
             head = crnt = ptr;
-            if(head == NULL) {
+            if (head == NULL) {
                 tail = NULL;
             }
         }
@@ -162,7 +162,7 @@ class AryLinkedListT<E> {
         if (head != NULL) {
             if (p == head) // p가 머리 노드면
                 removeFirst(); // 머리 노드를 삭제
-            else if(p == tail)
+            else if (p == tail)
                 removeLast();
             else {
                 int ptr = head;
@@ -246,8 +246,8 @@ class AryLinkedListT<E> {
 
         int ptr = head;
 
-        while(ptr != NULL && num >= 0) {
-            if(num-- == 0) {
+        while (ptr != NULL && num >= 0) {
+            if (num-- == 0) {
                 crnt = ptr;
                 return n[ptr].data;
             }

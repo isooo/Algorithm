@@ -18,7 +18,7 @@ public class Q01 {
 
     static int factorial(int x) {
         int result = 1;
-        for(int i = x ; i >= 1 ; i--) {
+        for (int i = x; i >= 1; i--) {
             result *= i;
         }
         return result;

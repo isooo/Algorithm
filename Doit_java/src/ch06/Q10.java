@@ -19,18 +19,18 @@ public class Q10 {
 
         System.out.println("\t피벗 : " + x + " // 왼쪽 : " + left + " // 오른쪽 : " + right);
 
-        do{
-            while(a[pl] < x) pl++;
-            while(a[pr] > x) pr--;
-            if(pl <= pr) {
+        do {
+            while (a[pl] < x) pl++;
+            while (a[pr] > x) pr--;
+            if (pl <= pr) {
                 swap(a, pl++, pr--);
             }
-        } while(pl <= pr);
+        } while (pl <= pr);
 
-        if(left < pr) {
+        if (left < pr) {
             quickSort(a, left, pr);
         }
-        if(pl < right) {
+        if (pl < right) {
             quickSort(a, pl, right);
         }
 
@@ -56,7 +56,7 @@ public class Q10 {
         quickSort(x, cnt);
 
         System.out.print("퀵 정렬로 오름차순 정렬 완료 : ");
-        for(int i = 0 ; i < cnt ; i++) {
+        for (int i = 0; i < cnt; i++) {
             System.out.print(" " + x[i]);
         }
     }

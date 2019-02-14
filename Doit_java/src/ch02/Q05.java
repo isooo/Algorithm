@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Q05 {
 
     private static void rcopy(int[] a, int[] b) {
-        for (int i = 0 ; i < a.length ; i++) {
+        for (int i = 0; i < a.length; i++) {
             b[a.length - i - 1] = a[i];
         }
     }
@@ -22,7 +22,7 @@ public class Q05 {
 
         int[] a = new int[count];
 
-        for (int i = 0 ; i < a.length ; i++) {
+        for (int i = 0; i < a.length; i++) {
             System.out.print("a[" + i + "] : ");
             a[i] = sc.nextInt();
         }
@@ -32,7 +32,7 @@ public class Q05 {
         rcopy(a, b);
 
         System.out.println("--- 역순 저장 완료 ---");
-        for (int i = 0 ; i < b.length ; i++) {
+        for (int i = 0; i < b.length; i++) {
             System.out.print(b[i] + "  ");
         }
     }// main()

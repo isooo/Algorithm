@@ -18,7 +18,7 @@ public class Q7 {
 
         int sum = 0;
 
-        for (int i = 1 ; i <= n ; i++) {
+        for (int i = 1; i <= n; i++) {
             System.out.print(i);
             sum += i;
             if (i < n) System.out.print(" + ");

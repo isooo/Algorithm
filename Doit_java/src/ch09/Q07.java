@@ -61,22 +61,22 @@ class CircLinkedList<E> {
 
     // 노드 검색
     public E search(E obj, Comparator<? super E> c) {
-        if(head != null) {
+        if (head != null) {
             Node<E> ptr = head;     // 현재 scan중인 노드
             do {
-                if(c.compare(obj, ptr.data) == 0) {
+                if (c.compare(obj, ptr.data) == 0) {
                     crnt = ptr;
                     return ptr.data;
                 }
                 ptr = ptr.next;
-            } while(ptr != head);
+            } while (ptr != head);
         }
         return null;        // 검색 실패
     }
 
     // 머리에 노드 삽입
     public void addFirst(E obj) {
-        if(head == null) {
+        if (head == null) {
             head = tail = crnt = new Node<E>(obj);
         } else {
             Node<E> ptr = head;
@@ -87,7 +87,7 @@ class CircLinkedList<E> {
 
     // 꼬리에 노드 삽입
     public void addLast(E obj) {
-        if(head ==  null) {
+        if (head == null) {
             addFirst(obj);
         } else {
             Node<E> ptr = tail;
@@ -97,8 +97,8 @@ class CircLinkedList<E> {
 
     // 머리 노드를 삭제
     public void removeFirst() {
-        if(head != null) {
-            if(head == tail) {
+        if (head != null) {
+            if (head == tail) {
                 head = tail = crnt = null;
             } else {
                 Node<E> ptr = head.next;
@@ -110,14 +110,14 @@ class CircLinkedList<E> {
 
     // 꼬리 노드를 삭제
     public void removeLast() {
-        if(head != null) {
-            if(head == tail) {
+        if (head != null) {
+            if (head == tail) {
                 removeFirst();
             } else {
                 Node<E> ptr = head;     // 스캔중인 노드
                 Node<E> pre = head;     // 스캔중인 노드의 앞 노드
 
-                while(ptr.next != head) {
+                while (ptr.next != head) {
                     pre = ptr;
                     ptr = ptr.next;
                 }
@@ -130,17 +130,17 @@ class CircLinkedList<E> {
 
     // 노드 삭제
     public void remove(Node target) {
-        if(head != null) {
-            if(target == head) {
+        if (head != null) {
+            if (target == head) {
                 removeFirst();
-            } else if(target == tail) {
+            } else if (target == tail) {
                 removeLast();
             } else {
                 Node<E> ptr = head;
 
-                while(ptr.next != target) {
+                while (ptr.next != target) {
                     ptr = ptr.next;
-                    if(ptr == head) {
+                    if (ptr == head) {
                         return;         // target이 리스트에 없는 경우
                     }
                 }
@@ -157,7 +157,7 @@ class CircLinkedList<E> {
 
     // 모든 노드를 삭제
     public void clear() {
-        while(head != null) {
+        while (head != null) {
             removeFirst();      // 노드에 아무것도 없을 때까지 머리 노드를 삭제
         }
         crnt = null;
@@ -165,7 +165,7 @@ class CircLinkedList<E> {
 
     // 선택 노드 crnt를 하나 뒤로 이동
     public boolean next() {
-        if(crnt == null || crnt.next == head) {
+        if (crnt == null || crnt.next == head) {
             return false;
         }
         crnt = crnt.next;
@@ -174,7 +174,7 @@ class CircLinkedList<E> {
 
     // 선택 노드 crnt를 출력
     public void printCurrentNode() {
-        if(crnt == null) {
+        if (crnt == null) {
             System.out.println("선택한 노드가 없습니다.");
         } else {
             System.out.println("선택된 노드 : " + crnt.data);
@@ -183,20 +183,20 @@ class CircLinkedList<E> {
 
     // 모든 노드를 출력
     public void dump() {
-        if(head != null) {
+        if (head != null) {
             Node<E> ptr = head;
 
             do {
                 System.out.println("\t" + ptr.data);
                 ptr = ptr.next;
-            } while(ptr != head);
+            } while (ptr != head);
         }
     }
 
 
     // 동일한 노드를 찾아, 가장 앞쪽 노드만 남기고 나머진 삭제하기
     public void purge(Comparator<? super E> c) {
-        if(head == null) {
+        if (head == null) {
             return;
         }
 
@@ -208,9 +208,9 @@ class CircLinkedList<E> {
             Node<E> pre = ptr;
             Node<E> tmp = null;
 
-            while(pre.next != head) {
+            while (pre.next != head) {
                 ptr2 = pre.next;
-                if(c.compare(ptr.data, ptr2.data) == 0) {
+                if (c.compare(ptr.data, ptr2.data) == 0) {
                     pre.next = ptr2.next;
                     tmp = ptr2;
                     cnt++;
@@ -219,27 +219,27 @@ class CircLinkedList<E> {
                 }
             }
 
-            if(cnt == 0) {
+            if (cnt == 0) {
                 ptr = ptr.next;
-            } else if(tmp != null) {
+            } else if (tmp != null) {
                 Node<E> tmp2 = ptr;
                 ptr = tmp2.next;
             }
-        } while(ptr.next != head);
+        } while (ptr.next != head);
         crnt = head;
     }
 
     // 머리부터 n개 뒤의 노드에 대한 참조
     public E retrieve(int n) {
-        if(head != null) {
+        if (head != null) {
             Node<E> ptr = head;
             do {
-                if(n-- == 0) {
+                if (n-- == 0) {
                     crnt = ptr;
                     return ptr.data;
                 }
                 ptr = ptr.next;
-            } while(n > 0 && ptr != head);
+            } while (n > 0 && ptr != head);
         }
         return null;
     }

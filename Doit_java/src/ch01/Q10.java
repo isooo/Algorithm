@@ -34,7 +34,7 @@ public class Q10 {
         }
 */
 
-        System.out.println(b + " - " + a + "는 " +  (b - a) + "입니다.");
+        System.out.println(b + " - " + a + "는 " + (b - a) + "입니다.");
 
     }
 }

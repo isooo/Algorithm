@@ -13,7 +13,7 @@ public class Q07 {
 
         int no;                     // 변환하는 정수
         int cd;                     // 기수
- //       int dno;                    // 변환 후의 자릿수
+        //       int dno;                    // 변환 후의 자릿수
         int retry;                  // 프로그램 재실행 여부
 
         System.out.println("10진수를 기수 변환합니다.");
@@ -23,24 +23,24 @@ public class Q07 {
             do {
                 System.out.print("변환하는 음이 아닌 정수 : ");
                 no = sc.nextInt();
-            } while(no < 0);
+            } while (no < 0);
 
             do {
                 System.out.print("어떤 진수로 변환할까요? (2~36) : ");
                 cd = sc.nextInt();
-            } while(cd < 2 || cd > 36);
+            } while (cd < 2 || cd > 36);
 
             cno = cardConvR(no, cd, cno);
 
             System.out.print("\t\t ==> " + cd + "진수로는 ");
-            for(int i = 0 ; i < cno.length ; i++) {
+            for (int i = 0; i < cno.length; i++) {
                 System.out.print(cno[i]);
             }
             System.out.println("입니다.");
 
             System.out.print("\t한번 더 할까요? (1.예 / 2.아니오) : ");
             retry = sc.nextInt();
-        } while(retry == 1);
+        } while (retry == 1);
 
     } //main()
 
@@ -52,16 +52,16 @@ public class Q07 {
 
         do {
             if (x / r != 0) {
-                System.out.printf("%2d | %8d  ... %d\n   + ---------\n", r, x/r, x%r);
+                System.out.printf("%2d | %8d  ... %d\n   + ---------\n", r, x / r, x % r);
             } else {
-                System.out.printf("     %8d  ... %d\n", x, x%r);
+                System.out.printf("     %8d  ... %d\n", x, x % r);
             }
 
             d[digits++] = dchar.charAt(x % r);
             x /= r;
-        } while(x != 0);
+        } while (x != 0);
 
-        for (int i = 0 ; i < digits/2 ; i++) {
+        for (int i = 0; i < digits / 2; i++) {
             char tmp = d[i];
             d[i] = d[digits - 1 - i];
             d[digits - 1 - i] = tmp;

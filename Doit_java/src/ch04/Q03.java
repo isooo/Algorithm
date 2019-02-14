@@ -9,23 +9,27 @@ public class Q03 {
 
     public enum AorB {
         StackA, StackB
-    };
+    }
+
+    ;
 
     public class EmptyQ03Exception extends RuntimeException {
-        public EmptyQ03Exception() {}
+        public EmptyQ03Exception() {
+        }
     }
 
     public class OverflowQ03Exception extends RuntimeException {
-        public OverflowQ03Exception() {}
+        public OverflowQ03Exception() {
+        }
     }
 
     public Q03(int capacity) {
         this.ptrA = 0;
         this.ptrB = capacity - 1;
         this.max = capacity;
-        try{
+        try {
             stk = new int[capacity];
-        } catch(OutOfMemoryError e) {
+        } catch (OutOfMemoryError e) {
             max = 0;
         }
     }

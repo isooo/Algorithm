@@ -32,46 +32,46 @@ class IntQueue {
         num = front = rear = 0;
         try {
             que = new int[max];
-        } catch(OutOfMemoryError e) {
+        } catch (OutOfMemoryError e) {
             max = 0;
         }
     }
 
     public int enque(int x) throws OverflowIntQueueException {
-        if(num >= max) {
+        if (num >= max) {
             throw new OverflowIntQueueException();
         }
         que[rear++] = x;
         num++;
-        if(rear == max) {
+        if (rear == max) {
             rear = 0;
         }
         return x;
     }
 
     public int deque() throws EmptyIntQueueException {
-        if(num <= 0) {
+        if (num <= 0) {
             throw new EmptyIntQueueException();
         }
         int x = que[front++];
         num--;
-        if(front == max) {
+        if (front == max) {
             front = 0;
         }
         return x;
     }
 
     public int peek() throws EmptyIntQueueException {
-        if(num <= 0) {
+        if (num <= 0) {
             throw new EmptyIntQueueException();
         }
         return que[front];
     }
 
     public int indexOf(int x) {
-        for(int i = 0 ; i < num ; i++) {
+        for (int i = 0; i < num; i++) {
             int idx = (i + front) % max;
-            if(que[idx] == x) {
+            if (que[idx] == x) {
                 return idx;
             }
         }
@@ -99,11 +99,11 @@ class IntQueue {
     }
 
     public void dump() {
-        if(num <= 0) {
+        if (num <= 0) {
             System.out.println("큐가 비어있습니다.");
         } else {
             System.out.print("[ ");
-            for(int i = 0 ; i < num ; i++) {
+            for (int i = 0; i < num; i++) {
                 System.out.println(que[(i + front) % max] + " ");
             }
             System.out.print(" ]");
@@ -111,8 +111,8 @@ class IntQueue {
     }
 
     public int search(int x) {
-        for(int i = 0 ; i < num ; i++) {
-            if(que[(i + front) % max] == x) {
+        for (int i = 0; i < num; i++) {
+            if (que[(i + front) % max] == x) {
                 return (i + 1);
             }
         }

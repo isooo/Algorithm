@@ -8,12 +8,12 @@ import java.util.Scanner;
 
 public class Q11 {
 
-    static int lengthOf (int num) {
+    static int lengthOf(int num) {
 
         int count = 0;
 
 //        while (num % 10 != 0 || num / 10 != 0) {
-            while(num > 0) {
+        while (num > 0) {
             num = num / 10;
             count++;
         }
@@ -27,7 +27,7 @@ public class Q11 {
 
         int num = 0;
 
-        do{
+        do {
             System.out.print("양의 정수를 입력하세요 : ");
             num = sc.nextInt();
         } while (num <= 0);

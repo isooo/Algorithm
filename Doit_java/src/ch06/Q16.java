@@ -57,7 +57,7 @@ public class Q16 {
         Arrays.sort(x, PhyscData.VISION_ORDER);
 
         System.out.println("이름\t\t키\t시력");
-        for(int i = 0 ; i < x.length ; i++) {
+        for (int i = 0; i < x.length; i++) {
             System.out.printf("%-8s%3d%5.1f\n", x[i].name, x[i].height, x[i].vision);
         }
     }

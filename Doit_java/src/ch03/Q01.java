@@ -17,7 +17,7 @@ public class Q01 {
 
         int[] x = new int[num + 1];
 
-        for (int i = 0 ; i < num ; i++) {
+        for (int i = 0; i < num; i++) {
             System.out.print("x[" + i + "]의 요소 : ");
             x[i] = sc.nextInt();
         }
@@ -41,7 +41,7 @@ public class Q01 {
 
         x[num] = key;       // 보초를 추가
 
-        for (i = 0 ; i <= num ; i++) {
+        for (i = 0; i <= num; i++) {
             if (x[i] == key) {
                 break;
             }
@@ -55,7 +55,7 @@ public class Q01 {
 
         x[num] = key;
 
-        for (i = 0 ; x[i] != key ; i++)
+        for (i = 0; x[i] != key; i++)
             ;
 
         return i == num ? -1 : i;

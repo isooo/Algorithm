@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Q9 {
 
-    static int sumof (int a, int b) {
+    static int sumof(int a, int b) {
         int sum = 0;
 
         if (a > b) {
@@ -17,7 +17,7 @@ public class Q9 {
             b = sum;
             sum = 0;
         }
-        for (int i = a ; i <= b ; i++) {
+        for (int i = a; i <= b; i++) {
             sum += i;
         }
         return sum;

@@ -21,7 +21,7 @@ public class Q03 {
         System.out.print("x[0]의 요소 : ");
         a[0] = sc.nextInt();
 
-        for(int i = 1 ; i < n ; i++) {
+        for (int i = 1; i < n; i++) {
             System.out.print("x[" + i + "]의 요소 : ");
             a[i] = sc.nextInt();
         }
@@ -34,7 +34,7 @@ public class Q03 {
         int count = searchIdx(a, n, key, idx);
 
         System.out.println(count + "만큼 존재합니다");
-        for(int i = 0 ; i < count ; i++) {
+        for (int i = 0; i < count; i++) {
             System.out.print(" " + idx[i]);
         }
     }
@@ -43,8 +43,8 @@ public class Q03 {
 
         int idxKey = 0;
 
-        for(int i = 0 ; i < n ; i++) {
-            if(a[i] == key) {
+        for (int i = 0; i < n; i++) {
+            if (a[i] == key) {
                 idx[idxKey++] = i;
             }
         }

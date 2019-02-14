@@ -23,7 +23,7 @@ public class Q2 {
 
     }
 
-    static int min3 (int a, int b, int c) {
+    static int min3(int a, int b, int c) {
         int min = a;
 
         if (b < min) min = b;

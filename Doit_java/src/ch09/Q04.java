@@ -244,8 +244,8 @@ class AryLinkedList<E> {
 
         int ptr = head;
 
-        while(ptr != NULL && num >= 0) {
-            if(num-- == 0) {
+        while (ptr != NULL && num >= 0) {
+            if (num-- == 0) {
                 crnt = ptr;
                 return n[ptr].data;
             }

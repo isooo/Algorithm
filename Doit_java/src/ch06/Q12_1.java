@@ -18,15 +18,15 @@ public class Q12_1 {
         int pr = right;     // 오른쪽
         int x = a[(pl + pr) / 2];   // 피벗
 
-        do{
-            while(a[pl] < x) pl++;
-            while(a[pr] > x) pr--;
-            if(pl <= pr) {
+        do {
+            while (a[pl] < x) pl++;
+            while (a[pr] > x) pr--;
+            if (pl <= pr) {
                 swap(a, pl++, pr--);
             }
-        } while(pl <= pr);
+        } while (pl <= pr);
 
-        if(pr - left > right - pl) {
+        if (pr - left > right - pl) {
             int tmp = left;
             left = pl;
             pl = tmp;
@@ -34,11 +34,11 @@ public class Q12_1 {
             right = pr;
             pr = tmp;
         }
-        
-        if(left < pr) {
+
+        if (left < pr) {
             quickSort(a, left, pr);
         }
-        if(pl < right) {
+        if (pl < right) {
             quickSort(a, pl, right);
         }
 
@@ -58,7 +58,7 @@ public class Q12_1 {
         quickSort(x, 0, cnt - 1);
 
         System.out.print("퀵정렬로 오름차순 정렬 완료 : ");
-        for(int i = 0 ; i < cnt ; i++) {
+        for (int i = 0; i < cnt; i++) {
             System.out.print(" " + x[i]);
         }
     }

@@ -12,19 +12,19 @@ public class Q06 {
 
     // 단순선택정렬
     static void selectionSort(int[] a, int count) {
-        for(int i = 0 ; i < count - 1 ; i++) {
+        for (int i = 0; i < count - 1; i++) {
             int min = i; // 미정렬된 부분 최소 요소의 index
-            for(int j = i + 1 ; j < count ; j++) {
-                if(a[j] < a[min]) {
+            for (int j = i + 1; j < count; j++) {
+                if (a[j] < a[min]) {
                     min = j;
                 }
             }
-            for(int m = 0 ; m < count ; m++) {
+            for (int m = 0; m < count; m++) {
                 System.out.print((m == i) ? "  * " : (m == min) ? "  + " : "    ");
             }
             System.out.println();
 
-            for(int m = 0 ; m < count ; m++) {
+            for (int m = 0; m < count; m++) {
                 System.out.printf("%3d ", a[m]);
             }
             System.out.println("\n");
@@ -41,7 +41,7 @@ public class Q06 {
         int count = stdIn.nextInt();
         int[] x = new int[count];
 
-        for(int i = 0 ; i < count ; i++) {
+        for (int i = 0; i < count; i++) {
             System.out.print("x[" + i + "]：");
             x[i] = stdIn.nextInt();
         }

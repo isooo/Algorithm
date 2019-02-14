@@ -18,7 +18,7 @@ public class Q11 {
         System.out.println("\tlstack || " + left);
         System.out.println("\trstack || " + right);
 
-        while(lstack.isEmpty() != true) {
+        while (lstack.isEmpty() != true) {
             int pl = left = lstack.pop();       // 왼쪽커서
             int pr = right = rstack.pop();      // 오른쪽커서
             int x = a[(left + right) / 2];      // 피벗
@@ -30,27 +30,27 @@ public class Q11 {
             rstack.dump();
 
             System.out.printf("\t\ta[%d] ~ a[%d] : {", left, right);
-            for(int i = left ; i < right ; i++) {
+            for (int i = left; i < right; i++) {
                 System.out.printf("%d , ", a[i]);
             }
             System.out.printf("%d}\n", a[right]);
 
 
-            do{
-                while(a[pl] < x) pl++;
-                while(a[pr] > x) pr--;
-                if(pl <= pr) {
+            do {
+                while (a[pl] < x) pl++;
+                while (a[pr] > x) pr--;
+                if (pl <= pr) {
                     swap(a, pl++, pr--);
                 }
-            } while(pl <= pr);
+            } while (pl <= pr);
 
-            if(left < pr) {
+            if (left < pr) {
                 lstack.push(left);
                 rstack.push(pr);
                 System.out.printf("a[%d]~a[%d]를 분할하는 문제를 스택에 푸시합니다.\n", left, pr);
             }
 
-            if(pl < right) {
+            if (pl < right) {
                 lstack.push(pl);
                 rstack.push(right);
                 System.out.printf("a[%d]~a[%d]를 분할하는 문제를 스택에 푸시합니다.\n", pl, right);
@@ -79,7 +79,7 @@ public class Q11 {
         quickSort(x, 0, cnt - 1);
 
         System.out.print("퀵정렬로 오름차순 정렬 완료 : ");
-        for(int i = 0 ; i < cnt ; i++) {
+        for (int i = 0; i < cnt; i++) {
             System.out.print(" " + x[i]);
         }
     }

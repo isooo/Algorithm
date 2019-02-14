@@ -18,7 +18,7 @@ public class Q8 {
 
         int sum = (n + 1) * (n / 2) + (n % 2 == 1 ? (n + 1) / 2 : 0); // 합
 
-        System.out.println("합 : " + (((1 + n)*n)/2));
+        System.out.println("합 : " + (((1 + n) * n) / 2));
 
     }
 

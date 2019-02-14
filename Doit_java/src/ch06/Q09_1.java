@@ -6,11 +6,11 @@ public class Q09_1 {
 
     static void shellSort(int[] a, int n) {
         int cnt = 0;
-        for(int h = n / 2 ; h > 0 ; h /= 2) {
-            for(int i = h ; i < n ; i++) {
+        for (int h = n / 2; h > 0; h /= 2) {
+            for (int i = h; i < n; i++) {
                 int j;
                 int tmp = a[i];
-                for(j = i - h ; j >= 0 && a[j] > tmp ; j -= h) {
+                for (j = i - h; j >= 0 && a[j] > tmp; j -= h) {
                     a[j + h] = a[j];
                     cnt++;
                 }
@@ -28,7 +28,7 @@ public class Q09_1 {
         int cnt = sc.nextInt();
         int[] x = new int[cnt];
 
-        for(int i = 0 ; i < cnt ; i++) {
+        for (int i = 0; i < cnt; i++) {
             System.out.print("x[" + i + "] : ");
             x[i] = sc.nextInt();
         }
@@ -36,7 +36,7 @@ public class Q09_1 {
         shellSort(x, cnt);
 
         System.out.println("오름차순으로 정렬했습니다.");
-        for(int i = 0 ; i < cnt ; i++) {
+        for (int i = 0; i < cnt; i++) {
             System.out.println("x[" + i + "] = " + x[i]);
         }
     }

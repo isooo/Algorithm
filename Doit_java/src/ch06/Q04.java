@@ -11,7 +11,7 @@ public class Q04 {
         int cnt = sc.nextInt();
         int[] x = new int[cnt];
 
-        for(int i = 0 ; i < cnt ; i++) {
+        for (int i = 0; i < cnt; i++) {
             System.out.print("x[" + i + "] : ");
             x[i] = sc.nextInt();
         }
@@ -25,17 +25,17 @@ public class Q04 {
         int tmp = 0;
         int tryCnt = 0;
 
-        while(tmp < cnt - 1) {
+        while (tmp < cnt - 1) {
             System.out.println("패스 " + ++tryCnt + " : ");
             int last = cnt - 1;
-            for(int i = cnt - 1 ; i > tmp ; i--) {
-                for(int j = 0 ; j < cnt; j++) {
+            for (int i = cnt - 1; i > tmp; i--) {
+                for (int j = 0; j < cnt; j++) {
                     System.out.printf("%3d %c", x[j], (j != i - 1) ? ' ' : (x[i - 1] > x[i]) ? '+' : '-');
                 }
                 System.out.println();
 
                 compare++;
-                if(x[i - 1] > x[i]) {
+                if (x[i - 1] > x[i]) {
                     tot_exchange++;
                     swap(x, i - 1, i);
                     last = i;

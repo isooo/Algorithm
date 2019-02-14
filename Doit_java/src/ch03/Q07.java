@@ -32,7 +32,7 @@ public class Q07 {
                 new PhyscData("", 0, vision),
                 PhyscData.VISION_ORDER);
 
-        if(idx < 0) {
+        if (idx < 0) {
             System.out.println("요소가 없습니다.");
         } else {
             System.out.println("x[" + idx + "] 에 있습니다 ==> " + x[idx]);

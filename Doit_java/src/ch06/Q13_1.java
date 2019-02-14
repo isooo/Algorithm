@@ -5,12 +5,12 @@ import java.util.Scanner;
 public class Q13_1 {
 
     static void insertionSort(int[] a, int left, int right) {
-        for(int i = left + 1 ; i <= right ; i++) {
+        for (int i = left + 1; i <= right; i++) {
             int tmp = a[i];
 //            System.out.println("i :: " + i);
 //            System.out.println("tmp :: " + tmp);
             int j;
-            for(j = i ; j > left && a[j - 1] > tmp ; j--) {
+            for (j = i; j > left && a[j - 1] > tmp; j--) {
 //                System.out.println("\tj :: " + j);
 //                System.out.println("\ta[j] :: " + a[j]);
 //                System.out.println("\ta[j-1] :: " + a[j-1]);
@@ -30,7 +30,7 @@ public class Q13_1 {
 
     // 배열 나누기
     static void quickSort(int[] a, int left, int right) {
-        if(right - left < 9) {
+        if (right - left < 9) {
             System.out.println("삽입정렬 시작 : " + left + " ~ " + right);
             insertionSort(a, left, right);
         } else {
@@ -39,15 +39,15 @@ public class Q13_1 {
             int pr = right;     // 오른쪽
             int x = a[(pl + pr) / 2];   // 피벗
 
-            do{
-                while(a[pl] < x) pl++;
-                while(a[pr] > x) pr--;
-                if(pl <= pr) {
+            do {
+                while (a[pl] < x) pl++;
+                while (a[pr] > x) pr--;
+                if (pl <= pr) {
                     swap(a, pl++, pr--);
                 }
-            } while(pl <= pr);
+            } while (pl <= pr);
 
-            if(pr - left > right - pl) {
+            if (pr - left > right - pl) {
                 int tmp = left;
                 left = pl;
                 pl = tmp;
@@ -56,10 +56,10 @@ public class Q13_1 {
                 pr = tmp;
             }
 
-            if(left < pr) {
+            if (left < pr) {
                 quickSort(a, left, pr);
             }
-            if(pl < right) {
+            if (pl < right) {
                 quickSort(a, pl, right);
             }
         }
@@ -79,7 +79,7 @@ public class Q13_1 {
         quickSort(x, 0, cnt - 1);
 
         System.out.print("퀵정렬로 오름차순 정렬 완료 : ");
-        for(int i = 0 ; i < cnt ; i++) {
+        for (int i = 0; i < cnt; i++) {
             System.out.print(" " + x[i]);
         }
     }

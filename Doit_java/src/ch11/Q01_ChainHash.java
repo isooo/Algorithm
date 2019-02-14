@@ -55,7 +55,7 @@ class ChainHash<K, V> {
         try {
             table = new Node[size];
             this.size = size;
-        } catch(OutOfMemoryError e) {
+        } catch (OutOfMemoryError e) {
             this.size = 0;
         }
     }
@@ -70,8 +70,8 @@ class ChainHash<K, V> {
         int hash = hashValue(key);          // 검색할 데이터의 해시 값
         Node<K, V> p = table[hash];         // 선택 노드
 
-        while(p != null) {
-            if(p.getKey().equals(key)) {
+        while (p != null) {
+            if (p.getKey().equals(key)) {
                 return p.getValue();
             }
             p = p.next;
@@ -84,8 +84,8 @@ class ChainHash<K, V> {
         int hash = hashValue(key);          // 추가할 데이터의 해시 값
         Node<K, V> p = table[hash];         // 선택 노드
 
-        while(p != null) {
-            if(p.getKey().equals(key)) {
+        while (p != null) {
+            if (p.getKey().equals(key)) {
                 return 1;
             }
             p = p.next;
@@ -102,9 +102,9 @@ class ChainHash<K, V> {
         Node<K, V> p = table[hash];         // 선택 노드
         Node<K, V> pp = null;               // 바로 앞의 선택 노드
 
-        while(p != null) {
-            if(p.getKey().equals(key)) {
-                if(pp == null) {
+        while (p != null) {
+            if (p.getKey().equals(key)) {
+                if (pp == null) {
                     table[hash] = p.next;
                 } else {
                     pp.next = p.next;
@@ -118,10 +118,10 @@ class ChainHash<K, V> {
 
     // 해시 테이블 덤프
     public void dump() {
-        for(int i = 0 ; i < size ; i++) {
+        for (int i = 0; i < size; i++) {
             Node<K, V> p = table[i];
             System.out.printf("%02d   ", i);
-            while(p != null) {
+            while (p != null) {
                 System.out.printf("-> %s (%s)   ", p.getKey(), p.getValue());
                 p = p.next;
             }

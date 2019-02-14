@@ -19,18 +19,18 @@ public class Q06 {
         System.out.print("x[0]의 요소 : ");
         x[0] = sc.nextInt();
 
-        for (int i = 1 ; i < num ; i++) {
-            do{
+        for (int i = 1; i < num; i++) {
+            do {
                 System.out.print("x[" + i + "]의 요소 : ");
                 x[i] = sc.nextInt();
-            } while(x[i] < x[i - 1]);
+            } while (x[i] < x[i - 1]);
         }
 
         System.out.print("찾고자 하는 값 : ");
         int value = sc.nextInt();
 
         int idx = Arrays.binarySearch(x, value);
-        if(idx < 0) {
+        if (idx < 0) {
             System.out.println("그 값의 요소가 없습니다.");
             System.out.println("삽입포인트 : " + (idx + 1) * -1);
             System.out.println("반환된 값 : " + idx);

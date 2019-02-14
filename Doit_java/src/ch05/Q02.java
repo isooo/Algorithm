@@ -1,6 +1,7 @@
 package ch05;
 
 import java.util.Scanner;
+
 /*
     유클리드의 호제법에 의해 최대 공약수를 비재귀적으로 구합니다.
  */
@@ -19,7 +20,7 @@ public class Q02 {
 
     static int gcd(int x, int y) {
 
-        while(y != 0) {
+        while (y != 0) {
             int tmp = x;
             x = y;
             y = tmp % y;

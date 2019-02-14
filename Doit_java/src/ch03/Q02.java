@@ -17,7 +17,7 @@ public class Q02 {
 
         int[] x = new int[num + 1];
 
-        for (int i = 0 ; i < num ; i++) {
+        for (int i = 0; i < num; i++) {
             System.out.print("x[" + i + "]의 요소 : ");
             x[i] = sc.nextInt();
         }
@@ -38,20 +38,20 @@ public class Q02 {
     static int seqSearchSenAnswer(int[] x, int num, int key) {
 
         System.out.print("   |");
-        for (int i = 0 ; i < num ; i++)
+        for (int i = 0; i < num; i++)
             System.out.printf("%4d", i);
         System.out.println();
 
         System.out.print("---+");
-        for (int i = 0 ; i < 4 * num + 2 ; i++)
+        for (int i = 0; i < 4 * num + 2; i++)
             System.out.print("-");
         System.out.println();
 
-        for(int i = 0 ; i < num ; i++) {
+        for (int i = 0; i < num; i++) {
             System.out.print("   |");
             System.out.printf(String.format("%%%ds*\n", (i * 4) + 3), "");  // %%%ds*\n --> %7s*\n
             System.out.printf("%3d|", i);
-            for(int j = 0 ; j < num ; j++) {
+            for (int j = 0; j < num; j++) {
                 System.out.printf("%4d", x[j]);
             }
             System.out.println("\n   |");

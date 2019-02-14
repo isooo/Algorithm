@@ -5,12 +5,12 @@ public class Node {
     private Object value;
     private Node next;
 
-    public Node(){
+    public Node() {
         this.value = null;
         this.next = null;
     }
 
-    public Node(Object value){
+    public Node(Object value) {
         this.value = value;
         this.next = null;
     }

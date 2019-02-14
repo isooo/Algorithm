@@ -13,7 +13,7 @@ public class Q02 {
         int nx = sc.nextInt();
         int[] x = new int[nx];
 
-        for(int i = 0 ; i < nx ; i++) {
+        for (int i = 0; i < nx; i++) {
             System.out.print("x[" + i + "] : ");
             x[i] = sc.nextInt();
         }
@@ -29,14 +29,14 @@ public class Q02 {
     }
 
     private static void bubbleSort(int[] x, int n) {
-        for(int i = 0 ; i < n - 1 ; i++) {
+        for (int i = 0; i < n - 1; i++) {
             System.out.println("패스 " + (i + 1) + " : ");
-            for(int j = n - 1; j > i ; j--) {
-                for(int m = 0 ; m < n ; m++) {
+            for (int j = n - 1; j > i; j--) {
+                for (int m = 0; m < n; m++) {
                     System.out.printf("%3d %c", x[m], (m != j - 1) ? ' ' : (x[j - 1] > x[j]) ? '+' : '-');
                 }
                 System.out.println();
-                if(x[j - 1] > x[j]) {
+                if (x[j - 1] > x[j]) {
 
                     swap(x, j - 1, j);
                 }

@@ -15,7 +15,7 @@ class GQueue<E> {
     private int front;      // 첫 번째 요소 커서
     private int rear;       // 마지막 요소 커서
     private int num;        // 현재 데이터 수
-    private E [] que;      // 큐 본체
+    private E[] que;      // 큐 본체
 
     public static class EmptyGQueueException extends RuntimeException {
         public EmptyGQueueException() {
@@ -32,47 +32,47 @@ class GQueue<E> {
         this.max = capacity;
         num = front = rear = 0;
         try {
-            que = (E[])new Object[max];
-        } catch(OutOfMemoryError e) {
+            que = (E[]) new Object[max];
+        } catch (OutOfMemoryError e) {
             max = 0;
         }
     }
 
     public E enque(E x) throws OverflowGQueueException {
-        if(num >= max) {
+        if (num >= max) {
             throw new OverflowGQueueException();
         }
         que[rear++] = x;
         num++;
-        if(rear == max) {
+        if (rear == max) {
             rear = 0;
         }
         return x;
     }
 
     public E deque() throws EmptyGQueueException {
-        if(num <= 0) {
+        if (num <= 0) {
             throw new EmptyGQueueException();
         }
         E x = que[front++];
         num--;
-        if(front == max) {
+        if (front == max) {
             front = 0;
         }
         return x;
     }
 
     public E peek() throws EmptyGQueueException {
-        if(num <= 0) {
+        if (num <= 0) {
             throw new EmptyGQueueException();
         }
         return que[front];
     }
 
     public int indexOf(E x) {
-        for(int i = 0 ; i < num ; i++) {
+        for (int i = 0; i < num; i++) {
             int idx = (i + front) % max;
-            if(que[idx] == x) {
+            if (que[idx] == x) {
                 return idx;
             }
         }
@@ -100,11 +100,11 @@ class GQueue<E> {
     }
 
     public void dump() {
-        if(num <= 0) {
+        if (num <= 0) {
             System.out.println("큐가 비어있습니다.");
         } else {
             System.out.print("[ ");
-            for(int i = 0 ; i < num ; i++) {
+            for (int i = 0; i < num; i++) {
                 System.out.println(que[(i + front) % max].toString() + " ");
             }
             System.out.print(" ]");
@@ -112,8 +112,8 @@ class GQueue<E> {
     }
 
     public int search(E x) {
-        for(int i = 0 ; i < num ; i++) {
-            if(que[(i + front) % max] == x) {
+        for (int i = 0; i < num; i++) {
+            if (que[(i + front) % max] == x) {
                 return (i + 1);
             }
         }

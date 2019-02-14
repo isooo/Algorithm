@@ -12,12 +12,14 @@ public class Q11 {
 
         int quit = 0;
 
-        while(true) {
+        while (true) {
 
             System.out.print("1. 몇 일 전 구하기 / 2. 몇 일 후 구하기 / 3. 그만하기 : ");
             quit = sc.nextInt();
 
-            if(quit == 3) {break;}
+            if (quit == 3) {
+                break;
+            }
 
             System.out.print("년 : ");
             int y = sc.nextInt();
@@ -72,7 +74,7 @@ class YMD {
 
         tmpYMD.d += n;
 
-        while(tmpYMD.d > mdays[isLeap(tmpYMD.y)][tmpYMD.m - 1]) {
+        while (tmpYMD.d > mdays[isLeap(tmpYMD.y)][tmpYMD.m - 1]) {
             tmpYMD.d -= mdays[isLeap(tmpYMD.y)][tmpYMD.m - 1];
 
             if (++tmpYMD.m > 12) {
@@ -95,8 +97,8 @@ class YMD {
 
         tmpYMD.d -= n;
 
-        while(tmpYMD.d < 1) {
-            if(--tmpYMD.m < 1) {
+        while (tmpYMD.d < 1) {
+            if (--tmpYMD.m < 1) {
                 tmpYMD.y--;
                 tmpYMD.m = 12;
             }
