@@ -1,5 +1,7 @@
 package Feb2019.COSPro1;
-
+/*
+    중복문자 제거하기
+ */
 public class Ex09 {
     public String solution(String characters){
         String result = "";

@@ -1,5 +1,7 @@
 package Feb2019.COSPro1;
-
+/*
+    369 게임
+ */
 public class Ex06 {
 
     public int solution(int number) {

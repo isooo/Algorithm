@@ -1,5 +1,8 @@
 package Feb2019.COSPro1;
-
+/*
+    팰린드롬(palindrome)
+    앞뒤로 문자배열이 동일한 단어 찾기
+ */
 public class Ex08 {
 
     boolean solution(String sentence){

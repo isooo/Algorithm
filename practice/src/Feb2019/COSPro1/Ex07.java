@@ -1,5 +1,7 @@
 package Feb2019.COSPro1;
-
+/*
+    배열을 받아 조건에 만족하는 요소 체크하기
+ */
 public class Ex07 {
 
     public int solution(int[] scores) {

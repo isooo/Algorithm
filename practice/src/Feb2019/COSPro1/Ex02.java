@@ -1,7 +1,9 @@
 package Feb2019.COSPro1;
 
 import java.util.*;
-
+/*
+    등급별 할인율 계산하기
+ */
 public class Ex02 {
     public int solution(int price, String grade) {
         HashMap<String, Integer> table = new HashMap<>();

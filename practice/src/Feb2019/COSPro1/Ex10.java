@@ -1,5 +1,8 @@
 package Feb2019.COSPro1;
-
+/*
+    요소의 평균구하여
+    평균 이하인 요소 개수 구하
+ */
 public class Ex10 {
     public int solution(int[] data) {
         double total = 0;

@@ -1,7 +1,9 @@
 package Feb2019.COSPro1;
 
 import java.util.Arrays;
-
+/*
+사이즈가 주어졌을 때, 사이즈 별로 수량체크
+*/
 public class Ex01 {
 
     public int[] solution(String[] shirtSize) {

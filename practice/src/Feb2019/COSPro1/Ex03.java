@@ -1,5 +1,7 @@
 package Feb2019.COSPro1;
-
+/*
+    날짜 계산하기
+ */
 public class Ex03 {
     public int func_a(int month, int day){
         int monthList[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
