@@ -1,33 +1,37 @@
 package Feb2019.COSPro2;
 
 import java.util.Arrays;
+
 /*
     배열 합치고 오름차순 정렬
  */
-public class Ex04 {
+public class Ex04_3 {
     public int[] solution(int[] arrA, int[] arrB) {
-        int arrA_idx = 0, arrB_idx = 0;
-        int arrA_len = arrA.length;
-        int arrB_len = arrB.length;
-        int answer[] = new int[arrA_len + arrB_len];
-        int answer_idx = 0;
-        while(arrA_idx < arrA_len && arrB_idx < arrB_len){
-            if(arrA[arrA_idx] < arrB[arrB_idx]) {
-                answer[answer_idx++] = arrA[arrA_idx++];
+        int aLength = arrA.length;
+        int bLength = arrB.length;
+        int [] answer = new int[aLength + bLength];
+        int aIdx = 0;
+        int bIdx = 0;
+        int ansIdx = 0;
+        while (aIdx < aLength && bIdx < bLength) {
+            if(arrA[aIdx] < arrB[bIdx]) {
+                answer[ansIdx++] = arrA[aIdx++];
             } else {
-                answer[answer_idx++] = arrB[arrB_idx++];
+                answer[ansIdx++] = arrB[bIdx++];
             }
         }
-        while(arrA_idx < arrA_len)
-            answer[answer_idx++] = arrA[arrA_idx++];
-        while(arrB_idx < arrB_len)
-            answer[answer_idx++] = arrB[arrB_idx++];
+        while(aIdx < aLength) {
+            answer[ansIdx++] = arrA[aIdx++];
+        }
+        while(bIdx < bLength) {
+            answer[ansIdx++] = arrB[bIdx++];
+        }
         return answer;
     }
 
     // 아래는 테스트케이스 출력을 해보기 위한 main 메소드입니다.
     public static void main(String[] args) {
-        Ex04 ex04 = new Ex04();
+        Ex04_3 ex04 = new Ex04_3();
         int[] arrA = {-2, 3, 5, 9};
         int[] arrB = {0, 1, 5};
         int[] ret = ex04.solution(arrA, arrB);

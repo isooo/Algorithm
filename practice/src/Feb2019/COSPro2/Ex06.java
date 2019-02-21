@@ -1,5 +1,8 @@
 package Feb2019.COSPro2;
 
+/*
+    가위바위보 문제
+ */
 public class Ex06 {
 
 /*    public int func(int record){
@@ -47,6 +50,7 @@ public class Ex06 {
                 if(cnt < 0) {
                     cnt = 0;
                 }
+                // cnt = Math.max(0, cnt - 1);
         }
         return cnt;
     }

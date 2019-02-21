@@ -1,7 +1,9 @@
 package Feb2019.COSPro2;
 
 import java.util.Arrays;
-
+/*
+    최대빈도인 요소 구하기
+ */
 public class Ex05 {
     public int[] solution(int N, int[] votes) {
     int voteCounter[] = new int[11];

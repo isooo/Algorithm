@@ -1,8 +1,27 @@
 package Feb2019.COSPro2;
 
 public class Ex06_2 {
+    public int func(int n) {
+        if(n == 0) {
+            return 2;
+        } else if (n == 1) {
+            return 0;
+        }
+        return 1;
+    }
+
     public int solution(int[] recordA, int[] recordB){
         int result = 0;
+
+        for(int i = 0 ; i < recordA.length ; i++) {
+            if(recordA[i] == recordB[i]) {
+                continue;
+            } else if (func(recordA[i]) == recordB[i]) {
+                result += 3;
+            } else {
+                result = Math.max(0, result - 1);
+            }
+        }
 
         return result;
     }

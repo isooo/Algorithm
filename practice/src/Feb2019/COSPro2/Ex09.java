@@ -1,5 +1,9 @@
 package Feb2019.COSPro2;
-
+/*
+    해밍거리(Hamming distance) 구하기
+        같은 길이를 가진 두 개의 문자열에서 같은 위치에 있지만,
+        서로 다른 문자의 개수
+ */
 public class Ex09 {
 
     public String func_a(String str, int len){

@@ -1,7 +1,7 @@
 package Feb2019.COSPro2;
-
-import java.util.*;
-
+/*
+    특정 숫자 변환하
+ */
 public class Ex01 {
     public long solution(long num) {
         long answer = num + 1;
@@ -9,6 +9,16 @@ public class Ex01 {
         str = str.replace('0', '1');
         answer = Long.parseLong(str);
         return answer;
+    }
+
+    public long solution2(long num) {
+        num++;
+        long digit = 1;
+        while (num / digit % 10 == 0) {
+            num += digit;
+            digit *= 10;
+        }
+        return num;
     }
 
     // 아래는 테스트케이스 출력을 해보기 위한 main 메소드입니다.
