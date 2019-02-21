@@ -2,6 +2,8 @@ package Feb2019.COSPro2;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Map;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 class Ex08_2 {
@@ -53,18 +55,25 @@ class Ex08_2 {
             }
 */
 
-            Stream<String> stream = this.orderList.stream();
+            Map<String, Integer> foodMap = this.menuList.stream()
+                    .collect(Collectors.toMap(food -> food.name, food -> food.price))
+                    ;
+
+            int totalPrice = this.orderList.stream()
+                    .mapToInt(foodName -> foodMap.get(foodName))
+                    .sum()
+                    ;
+
+            System.out.println("totalPrice : " + totalPrice);
+/*
             for(String orderName : this.orderList) {
                 total += this.menuList.stream()
-//                        .map(list -> list.name)
-//                        .filter(name -> orderName.equals(name))
                         .filter(list -> list.name.equals(orderName))
-                        .peek(list -> System.out.print("order name : " + list.name))
                         .mapToInt(list -> list.price)
                         .peek(System.out::println)
                         .sum();
             }
-
+*/
 
             return total;
         }
