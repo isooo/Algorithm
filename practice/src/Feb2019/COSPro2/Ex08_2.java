@@ -2,6 +2,7 @@ package Feb2019.COSPro2;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.stream.Stream;
 
 class Ex08_2 {
 
@@ -42,6 +43,7 @@ class Ex08_2 {
         public int getTotalPrice() {
             int total = 0;
 
+/*
             for(String order : this.orderList) {
                 for(Food menu : this.menuList) {
                     if(menu.name.equals(order)) {
@@ -49,6 +51,21 @@ class Ex08_2 {
                     }
                 }
             }
+*/
+
+            Stream<String> stream = this.orderList.stream();
+            for(String orderName : this.orderList) {
+                total += this.menuList.stream()
+//                        .map(list -> list.name)
+//                        .filter(name -> orderName.equals(name))
+                        .filter(list -> list.name.equals(orderName))
+                        .peek(list -> System.out.print("order name : " + list.name))
+                        .mapToInt(list -> list.price)
+                        .peek(System.out::println)
+                        .sum();
+            }
+
+
             return total;
         }
     }
