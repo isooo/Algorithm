@@ -21,13 +21,13 @@ public class Ex07 {
     // i는 열
 
     public static void solution(int r) {
-        if(r >= n) {
+        if(r > n) {
             // r이 n까지 왔다는건 퀸을 배치하는 방법 하나를 찾아낸 상태
             result++;
             return;     // 백트랙
         }
         // r행의 i열에 퀸을 놓기 시작
-        for(int i = 0 ; i < n ; i++) {
+        for(int i = 1 ; i <= n ; i++) {
             if(col[i] != 1 && inc[i + r] != 1 && dec[n + r - i] != 1) {
                 col[i] = inc[i + r] = dec[n + r - i] = 1;
                 solution(r + 1);
@@ -40,10 +40,10 @@ public class Ex07 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         n = sc.nextInt();
-        col = new int[n];
-        inc = new int[2 * n];
-        dec = new int[2 * n];
-        solution(0);
+        col = new int[n + 1];
+        inc = new int[2 * n + 1];
+        dec = new int[2 * n + 1];
+        solution(1);
         System.out.println(result);
     }
 }
