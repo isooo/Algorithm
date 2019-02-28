@@ -3,7 +3,7 @@ package Feb2019.creativeAlgorithm;
 import java.util.*;
 
 /*
-    두더지 굴
+    두더지 굴 (dfs로 풀기)
     이 지도는 정사각형이고
     가로 세로 영역을 0 또는 1로 표현한다.
     0은 땅이고 1은 두더지 굴을 나타낸다.
@@ -105,6 +105,19 @@ public class Ex06 {
 //            }
 //            sc.nextLine();
 //        }
+
+
+// 만약, 입력받을 때 띄워쓰기 없이 이어서 배열 숫자를 받을 경우
+//        String str = "";
+//        sc.nextLine();
+//        for(int i = 0 ; i < size ; i++) {
+//            str = sc.nextLine();
+//            for(int j = 0 ; j < size ; j++) {
+//                arr[i][j] = str.charAt(j) - '0';
+//            }
+//        }
+//        solution(size, arr);
+
 
         int size = 7;
         int[][] arr = {
