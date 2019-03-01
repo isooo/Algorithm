@@ -1,6 +1,5 @@
-package Feb2019.acmicpc;
+package acmicpc;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Ex1920 {

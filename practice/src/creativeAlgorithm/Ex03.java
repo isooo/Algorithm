@@ -1,6 +1,5 @@
-package Feb2019.creativeAlgorithm;
+package creativeAlgorithm;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 /*

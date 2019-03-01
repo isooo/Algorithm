@@ -1,4 +1,4 @@
-package Feb2019.acmicpc;
+package acmicpc;
 
 import java.util.*;
 

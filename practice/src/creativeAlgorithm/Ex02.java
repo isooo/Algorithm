@@ -1,4 +1,4 @@
-package Feb2019.creativeAlgorithm;
+package creativeAlgorithm;
 
 import java.util.Scanner;
 /*
