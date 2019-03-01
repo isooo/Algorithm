@@ -44,12 +44,13 @@ public class Ex06 {
         }
 
 //        Comparator<Integer> comparator = Comparator.comparingInt(o -> o); // 오름차순
-        Comparator<Integer> comparator = (o1, o2) -> o2 - o1;
+//        Comparator<Integer> comparator = (o1, o2) -> o2 - o1;
+        Comparator<Integer> comparator = Comparator.comparing(Integer::intValue).reversed();
 
         size = Arrays.stream(size)
                 .boxed()
                 .sorted(comparator)
-                .mapToInt(n -> n.intValue())
+                .mapToInt(Integer::intValue)    // mapToInt(n -> n.intValue())
                 .toArray();
 
         System.out.println("굴의 개수 : " + cnt);
