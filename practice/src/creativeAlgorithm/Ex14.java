@@ -16,19 +16,25 @@ public class Ex14 {
                 if(arr[i][j] != 0) {
                     if(arr[i][j - 1] != arr[i][j] && search1(arr, arr[i][j], i, j)) {
                         System.out.printf("%d\n%d %d", arr[i][j], (i+1), (j+1));
+                        return;
                     }       // ->
                     if(arr[i - 1][j - 1] != arr[i][j] && search2(arr, arr[i][j], i, j)) {
                         System.out.printf("%d\n%d %d", arr[i][j], (i+1), (j+1));
+                        return;
                     }       // \
                     if(arr[i - 1][j] != arr[i][j] && search3(arr, arr[i][j], i, j)) {
                         System.out.printf("%d\n%d %d", arr[i][j], (i+1), (j+1));
+                        return;
                     }       // |
                     if(arr[i + 1][j - 1] != arr[i][j] && search4(arr, arr[i][j], i, j)) {
                         System.out.printf("%d\n%d %d", arr[i][j], (i+1), (j+1));
+                        return;
                     }       // /
                 }
             }
         }
+        System.out.println("0");
+        return;
     }
 
     private static boolean search1(int[][]arr, int color, int i, int j) {
