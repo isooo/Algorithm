@@ -1,14 +1,12 @@
 package creativeAlgorithm;
 
 /*
-    배열2개와
-    녹았을 때 반복으로 다시 체크하지 말고
-    녹은 자리에서 다시 연결된 공기가 있는지 체
+    바뀔 부분을 저장해두었다가 처리하기
  */
 
 import java.util.Arrays;
 
-public class Ex19_2 {
+public class Ex19_3 {
     private static int n;
     private static int m;
     private static int[][] arr;
@@ -21,16 +19,6 @@ public class Ex19_2 {
             }
         }
     }
-
-    private static void fill1(int x, int y) {
-        if((0 <= x && x < n) && (0 <= y && y < m) && arr[x][y] == 0) {
-            arr[x][y] = 2;
-            fill1(x, y+1);
-            fill1(x+1, y);
-            fill1(x, y-1);
-            fill1(x-1, y);
-        }
-    }
     private static void fill2(int x, int y) {
         if((0 <= x && x < n) && (0 <= y && y < m) && arr2[x][y] == 0) {
             arr2[x][y] = 2;
@@ -38,6 +26,15 @@ public class Ex19_2 {
             fill2(x+1, y);
             fill2(x, y-1);
             fill2(x-1, y);
+        }
+    }
+    private static void fill3(int x, int y) {
+        if((0 <= x && x < n) && (0 <= y && y < m) && (arr[x][y] == 3 || arr[x][y] == 0)) {
+            arr[x][y] = 2;
+            fill3(x, y+1);
+            fill3(x+1, y);
+            fill3(x, y-1);
+            fill3(x-1, y);
         }
     }
 
@@ -75,8 +72,7 @@ public class Ex19_2 {
                 {0, 0, 0, 0, 0, 0, 0, 0, 0}
         };
 
-        fill1(0, 0);
-        fill2(0, 0);
+        fill3(0, 0);
 
         while (true) {
             int count = 0;
@@ -95,8 +91,7 @@ public class Ex19_2 {
             for(int i=0; i<n ;i++) {
                 for(int j=0; j<m; j++) {
                     if(arr[i][j]==1 && arr2[i][j]==0) {
-//                        fill2(i, j);      //??
-                        arr2[i][j] = 2;     //??
+                        fill2(i, j);
                     }
                 }
             }
